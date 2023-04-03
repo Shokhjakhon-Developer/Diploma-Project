@@ -1,0 +1,10 @@
+2023-04-03 21:48:58 INFO - UniqueElement is displayed: True.
+2023-04-03 21:48:58 INFO - Main page is opened: True.
+2023-04-03 21:49:00 INFO - LoginButton was clicked.
+2023-04-03 21:49:00 INFO - UniqueElement is displayed: True.
+2023-04-03 21:49:00 INFO - Login page is opened: True.
+2023-04-03 21:49:00 INFO - "qwerty123456789" was entered to EmailField.
+2023-04-03 21:49:00 INFO - "rs145609@gmail.com" was entered to EmailField.
+2023-04-03 21:49:05 INFO - SubmitLoginForm was clicked.
+2023-04-03 21:49:08 INFO - AccountLabel was clicked.
+2023-04-03 21:49:08 INFO - SignOutLabel was clicked.
