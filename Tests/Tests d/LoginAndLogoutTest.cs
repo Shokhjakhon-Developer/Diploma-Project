@@ -1,4 +1,5 @@
 ﻿using Models_and_Steps.Steps;
+using NUnit.Allure.Core;
 using NUnit.Framework;
 using Pages.Pages;
 
@@ -7,20 +8,32 @@ namespace Tests.Tests_d;
 public class LoginAndLogoutTest : BaseTest
 {
     [Test]
+    [Obsolete("Obsolete")]
+    [Category("Acceptance Test")]
     public void TestLoginAndLogout()
     {
         var mainPage = new MainPage("Main page");
         var loginPage = new LoginPage("Login page");
-        //var projectsPage = new ProjectsPage("Projects Page");
         var loginAndLogoutSteps = new LoginAndLogoutSteps();
-        var isMainPageOpened = mainPage.IsPageOpened();
-        Assert.That(isMainPageOpened);
-        mainPage.ClickLoginButton();
-        var isLoginPageOpened = loginPage.IsPageOpened();
-        Assert.That(isLoginPageOpened);
-        loginAndLogoutSteps.Login();
-        Thread.Sleep(2000);
-        loginAndLogoutSteps.Logout();
-        Thread.Sleep(2000);
+        //var projectsPage = new ProjectsPage("Projects Page");
+
+        Allure.WrapInStep(() =>
+        {
+            var isMainPageOpened = mainPage.IsPageOpened();
+            Assert.That(isMainPageOpened);
+        }, "Checking if the main page is opened.");
+
+        Allure.WrapInStep(() => { mainPage.ClickLoginButton(); }, "Clicking on login button.");
+
+        Allure.WrapInStep(() =>
+        {
+            var isLoginPageOpened = loginPage.IsPageOpened();
+            Assert.That(isLoginPageOpened);
+        }, "Checking if the login page is opened.");
+
+
+        Allure.WrapInStep(() => { loginAndLogoutSteps.Login(); }, "Performing login operation.");
+
+        Allure.WrapInStep(() => { loginAndLogoutSteps.Logout(); }, "Performing logout operation.");
     }
 }

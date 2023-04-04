@@ -1,22 +1,28 @@
-﻿using NUnit.Framework;
+﻿using Allure.Net.Commons;
+using NUnit.Allure.Core;
+using NUnit.Framework;
 using Selenium_Wrapper.Driver_Wrapper.Browser;
 using Selenium_Wrapper.Driver_Wrapper.Browser_settings;
+using Selenium_Wrapper.Utilities;
 
 namespace Tests.Tests_d;
 
+[AllureNUnit]
+[TestFixture]
 public abstract class BaseTest
 {
-    protected readonly Browser Browser = BrowserService.Browser;
+    private readonly Browser _browser = BrowserService.Browser;
+    protected readonly AllureLifecycle Allure = AllureLifecycle.Instance;
 
     [SetUp]
     public void SetUp()
     {
-        Browser.GoToUrl("https://qase.io/");
+        _browser.GoToUrl(AppConfig.GetProperty("driver","link"));
     }
 
     [TearDown]
     public void TearDown()
     {
-        Browser.Quit();
+        _browser.Quit();
     }
 }

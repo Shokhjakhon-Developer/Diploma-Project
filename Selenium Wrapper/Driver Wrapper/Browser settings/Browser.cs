@@ -16,17 +16,19 @@ public class Browser : IBrowser
         SessionId = webDriver.SessionId;
         MaximizeWindow();
         SetImplicitTime();
-        LLogger.Instance.Info($"WebDriver with session id {SessionId} is started.");
     }
 
     public void GoToUrl(Uri uri)
     {
-        GoToUrl(uri.ToString());
+        var link = uri.ToString();
+        GoToUrl(link);
     }
 
     public void GoToUrl(string uri)
     {
         WebDriver.Navigate().GoToUrl(uri);
+        LLogger.Instance.Info($"WebDriver with session id {SessionId} is started.");
+        LLogger.Instance.Info($"Current link: {uri}");
     }
 
     public void Quit()
