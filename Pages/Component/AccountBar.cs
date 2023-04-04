@@ -6,11 +6,11 @@ namespace Pages.Component;
 
 public class AccountBar : BasePage
 {
-    private readonly Map _map;
+    private readonly AccountBarMap _map;
 
     public AccountBar(string name) : base(name)
     {
-        _map = new Map();
+        _map = new AccountBarMap();
     }
 
     public void ClickOnAccountBar()
@@ -26,13 +26,16 @@ public class AccountBar : BasePage
     }
 }
 
-internal class Map : BaseMap
+internal class AccountBarMap : BaseMap
 {
-    public Map()
+    public AccountBarMap()
     {
         UniqueElement = new Label("AccountLabel", By.XPath("//span[@class=\"Eb2vGG\"]"));
     }
 
-    public Label SignOut = new("SignOutLabel",
+    public readonly Label SignOut = new("SignOutLabel",
         By.XPath("//div[@class=\"QyooxO\"]/span[contains(text(),\"Sign out\")]"));
+
+    public readonly Label Profile = new("ProfileLabel",
+        By.XPath("//a[@class=\"QyooxO\"]/span[contains(text(),\"Profile\")]"));
 }

@@ -2,7 +2,7 @@
 
 namespace Selenium_Wrapper.Utilities;
 
-public class AppConfig
+public static class AppConfig
 {
     private static readonly Json JsonSetUp =
         new(Directory.GetCurrentDirectory() + @"..\..\..\..\appSettings.json");
@@ -25,6 +25,5 @@ internal class Json
         string jsonData = File.ReadAllText(path);
         JsonDocument jsonDocument = JsonDocument.Parse(jsonData);
         Root = jsonDocument.RootElement;
-        LLogger.Instance.Info($"appSettings file path: {path}");
     }
 }
