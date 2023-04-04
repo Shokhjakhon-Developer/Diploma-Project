@@ -1,10 +1,13 @@
-2023-04-03 21:48:58 INFO - UniqueElement is displayed: True.
-2023-04-03 21:48:58 INFO - Main page is opened: True.
-2023-04-03 21:49:00 INFO - LoginButton was clicked.
-2023-04-03 21:49:00 INFO - UniqueElement is displayed: True.
-2023-04-03 21:49:00 INFO - Login page is opened: True.
-2023-04-03 21:49:00 INFO - "qwerty123456789" was entered to EmailField.
-2023-04-03 21:49:00 INFO - "rs145609@gmail.com" was entered to EmailField.
-2023-04-03 21:49:05 INFO - SubmitLoginForm was clicked.
-2023-04-03 21:49:08 INFO - AccountLabel was clicked.
-2023-04-03 21:49:08 INFO - SignOutLabel was clicked.
+2023-04-04 09:59:08 INFO - appSettings file path: C:\Users\Asus\RiderProjects\Diploma Project\Tests\bin\Debug\net7.0..\..\..\..\appSettings.json
+2023-04-04 09:59:10 INFO - WebDriver with session id 7c0ba5329aa0d1a912cbeddf1d3d8f26 is started.
+2023-04-04 09:59:13 INFO - UniqueElement is displayed: True.
+2023-04-04 09:59:13 INFO - Main page is opened: True.
+2023-04-04 09:59:15 INFO - LoginButton was clicked.
+2023-04-04 09:59:15 INFO - UniqueElement is displayed: True.
+2023-04-04 09:59:15 INFO - Login page is opened: True.
+2023-04-04 09:59:15 INFO - "qwerty123456789" was entered to PasswordField.
+2023-04-04 09:59:16 INFO - "rs145609@gmail.com" was entered to EmailField.
+2023-04-04 09:59:19 INFO - SubmitLoginForm was clicked.
+2023-04-04 09:59:21 INFO - AccountLabel was clicked.
+2023-04-04 09:59:21 INFO - SignOutLabel was clicked.
+2023-04-04 09:59:23 INFO - WebDriver with session 7c0ba5329aa0d1a912cbeddf1d3d8f26 is finished.

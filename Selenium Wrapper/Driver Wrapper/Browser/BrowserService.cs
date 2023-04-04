@@ -3,11 +3,11 @@ using Selenium_Wrapper.Driver_Wrapper.Browser_settings.Additional_methods;
 
 namespace Selenium_Wrapper.Driver_Wrapper.Browser;
 
-public class BrowserService
+public static class BrowserService
 {
-    private static readonly ThreadLocal<IBrowser> BrowserContainer = new ThreadLocal<IBrowser>();
+    private static readonly ThreadLocal<IBrowser> BrowserContainer = new();
 
-    private static readonly ThreadLocal<BrowserFactory> BrowserFactoryContainer = new ThreadLocal<BrowserFactory>();
+    private static readonly ThreadLocal<BrowserFactory> BrowserFactoryContainer = new();
 
     private static bool IsApplicationStarted() => BrowserContainer.IsValueCreated && BrowserContainer.Value.IsStarted;
 
@@ -44,5 +44,5 @@ public class BrowserService
         BrowserFactory = new LocalBrowserFactory(BrowserProfile);
     }
 
-    private static BrowserProfile BrowserProfile => new BrowserProfile();
+    private static BrowserProfile BrowserProfile => new();
 }

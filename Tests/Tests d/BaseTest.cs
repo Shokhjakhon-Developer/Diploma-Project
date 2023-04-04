@@ -1,4 +1,5 @@
-﻿using Selenium_Wrapper.Driver_Wrapper.Browser;
+﻿using NUnit.Framework;
+using Selenium_Wrapper.Driver_Wrapper.Browser;
 using Selenium_Wrapper.Driver_Wrapper.Browser_settings;
 
 namespace Tests.Tests_d;

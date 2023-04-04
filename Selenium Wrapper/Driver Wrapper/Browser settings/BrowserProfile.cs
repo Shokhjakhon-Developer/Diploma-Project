@@ -1,21 +1,22 @@
 ﻿using Selenium_Wrapper.Driver_Wrapper.Browser_options;
+using Selenium_Wrapper.Utilities;
 
 namespace Selenium_Wrapper.Driver_Wrapper.Browser_settings;
 
 public class BrowserProfile
 {
-    public string BrowserName = "chrome";
+    private readonly string _browserName = AppConfig.GetProperty("driver","browser");
 
     public OptionSettings DriverSettings
     {
         get
         {
-            switch (BrowserName)
+            switch (_browserName)
             {
                 case "chrome":
                     return new ChromeOption();
                 default:
-                    throw new InvalidOperationException($"Driver settings for browser '{BrowserName}' are not defined");
+                    throw new InvalidOperationException($"Driver settings for browser '{_browserName}' are not defined");
             }
         }
     }

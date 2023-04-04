@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using Selenium_Wrapper.Driver_Wrapper.Browser_settings.Additional_methods;
+using Selenium_Wrapper.Utilities;
 
 namespace Selenium_Wrapper.Driver_Wrapper.Browser_settings;
 
@@ -7,11 +8,15 @@ public class Browser : IBrowser
 {
     public WebDriver WebDriver { get; }
 
+    private SessionId SessionId { get; }
+
     public Browser(WebDriver webDriver)
     {
         WebDriver = webDriver;
+        SessionId = webDriver.SessionId;
         MaximizeWindow();
         SetImplicitTime();
+        LLogger.Instance.Info($"WebDriver with session id {SessionId} is started.");
     }
 
     public void GoToUrl(Uri uri)
@@ -27,6 +32,7 @@ public class Browser : IBrowser
     public void Quit()
     {
         WebDriver.Quit();
+        LLogger.Instance.Info($"WebDriver with session {SessionId} is finished.");
     }
 
     private void MaximizeWindow()
