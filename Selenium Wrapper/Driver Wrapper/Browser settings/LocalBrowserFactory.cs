@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
 using WebDriverManager.DriverConfigs.Impl;
 using WebDriverManager.Helpers;
 
@@ -23,8 +24,10 @@ public class LocalBrowserFactory : BrowserFactory
             {
                 case "chrome":
                     var options = (ChromeOptions)driverSettings.DriverOption;
-                    new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
-                    WebDriver webDriver = new ChromeDriver(options);
+                    new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig(),
+                        VersionResolveStrategy.MatchingBrowser);
+                    WebDriver webDriver = new
+                        RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), options.ToCapabilities());
                     return webDriver;
                 default:
                     throw new InvalidEnumArgumentException($"WebDriver for browser {browserName} is not supported");
