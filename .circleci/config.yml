@@ -5,6 +5,6 @@ jobs:
       - image: mcr.microsoft.com/devcontainers/dotnet:7.0
     steps:
       - checkout
-      - run: dotnet restore
+      - run: nuget restore
       - run: dotnet build
       - run: dotnet test 
