@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: jetcipher/circleci-dotnet-core:3.1
+      - image: jetcipher/circleci-dotnet-core:3.0
       - image: selenium/standalone-chrome:3.11.0
       # Specify service dependencies here if necessary  
       # CircleCI maintains a library of pre-built images
