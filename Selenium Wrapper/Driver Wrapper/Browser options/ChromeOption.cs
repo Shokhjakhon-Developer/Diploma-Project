@@ -13,6 +13,8 @@ public class ChromeOption : OptionSettings
             options.AddArgument(AppConfig.GetProperty("driver", "chromeOptions", "1"));
             options.AddArgument(AppConfig.GetProperty("driver", "chromeOptions", "2"));
             options.AddArgument(AppConfig.GetProperty("driver", "chromeOptions", "3"));
+            options.AddArgument(AppConfig.GetProperty("driver", "chromeOptions", "4"));
+            options.AddArgument(AppConfig.GetProperty("driver", "chromeOptions", "5"));
             return options;
         }
     }

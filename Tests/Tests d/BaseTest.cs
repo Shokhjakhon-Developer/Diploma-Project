@@ -10,7 +10,7 @@ namespace Tests.Tests_d;
 
 [AllureNUnit]
 [AllureSuite("Acceptance Test")]
-[TestFixture,Parallelizable]
+[TestFixture, Parallelizable]
 public abstract class BaseTest
 {
     private readonly Browser _browser = BrowserService.Browser;
@@ -19,7 +19,7 @@ public abstract class BaseTest
     [SetUp]
     public void SetUp()
     {
-        _browser.GoToUrl(AppConfig.GetProperty("driver","link"));
+        _browser.GoToUrl(AppConfig.GetProperty("driver", "link"));
     }
 
     [TearDown]
