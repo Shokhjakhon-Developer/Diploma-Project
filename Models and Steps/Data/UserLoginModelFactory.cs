@@ -2,7 +2,7 @@
 
 namespace Models_and_Steps.Data;
 
-public class UserLoginModelFactory
+public static class UserLoginModelFactory
 {
     public static readonly UserLoginModel User1 = new()
     {

@@ -15,8 +15,7 @@ public class MainPage : BasePage
 
     public void ClickLoginButton()
     {
-        var loginBtn = _map.LoginBtn;
-        loginBtn.Click();
+        _map.LoginBtn.Click();
     }
 }
 

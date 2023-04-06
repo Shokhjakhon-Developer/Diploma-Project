@@ -2,9 +2,9 @@
 
 namespace Models_and_Steps.Data;
 
-public class UserProfileModelFactory
+public abstract class UserProfileModelFactory
 {
-    public static UserProfileModel UserProfile1 = new()
+    public static readonly UserProfileModel UserProfile1 = new()
     {
         Name = "Shokhjakhon",
         Position = "AQA Engineer"

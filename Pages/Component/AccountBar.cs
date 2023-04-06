@@ -24,18 +24,24 @@ public class AccountBar : BasePage
         var element = _map.SignOut;
         element.Click();
     }
+
+    public void ClickOnProfile()
+    {
+        var element = _map.Profile;
+        element.Click();
+    }
 }
 
 internal class AccountBarMap : BaseMap
 {
     public AccountBarMap()
     {
-        UniqueElement = new Label("AccountLabel", By.XPath("//span[@class=\"Eb2vGG\"]"));
+        UniqueElement = new Label("AccountLabel", By.XPath("//span/img[@alt=\"Shokhjakhon\"]"));
     }
 
     public readonly Label SignOut = new("SignOutLabel",
-        By.XPath("//div[@class=\"QyooxO\"]/span[contains(text(),\"Sign out\")]"));
+        By.XPath("//span[contains(text(),\"Sign out\")]"));
 
     public readonly Label Profile = new("ProfileLabel",
-        By.XPath("//a[@class=\"QyooxO\"]/span[contains(text(),\"Profile\")]"));
+        By.XPath("//span[contains(text(),\"Profile\")]"));
 }

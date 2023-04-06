@@ -15,20 +15,17 @@ public class LoginPage : BasePage
 
     public void EnterEmailAddress(string address)
     {
-        var addressField = _map.EmailField;
-        addressField.EnterText(address);
+        _map.EmailField.EnterText(address);
     }
 
     public void EnterPassword(string password)
     {
-        var passwordField = _map.PasswordField;
-        passwordField.EnterText(password);
+        _map.PasswordField.EnterText(password);
     }
 
     public void ClickLogin()
     {
-        var loginBtn = _map.Login;
-        loginBtn.Click();
+        _map.Login.Click();
     }
 }
 

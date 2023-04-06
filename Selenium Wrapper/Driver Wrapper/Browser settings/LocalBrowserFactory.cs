@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using WebDriverManager.DriverConfigs.Impl;
+using WebDriverManager.Helpers;
 
 namespace Selenium_Wrapper.Driver_Wrapper.Browser_settings;
 
@@ -22,7 +23,7 @@ public class LocalBrowserFactory : BrowserFactory
             {
                 case "chrome":
                     var options = (ChromeOptions)driverSettings.DriverOption;
-                    new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+                    new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
                     WebDriver webDriver = new ChromeDriver(options);
                     return webDriver;
                 default:

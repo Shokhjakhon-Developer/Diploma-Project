@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Support.UI;
 using Selenium_Wrapper.Driver_Wrapper.Browser;
 using Selenium_Wrapper.Utilities;
+using SeleniumExtras.WaitHelpers;
 
 namespace Selenium_Wrapper.Element_Wrapper.Elements;
 
@@ -22,7 +23,7 @@ public class BaseElement
     protected IWebElement GetElement()
     {
         var wait = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(10));
-        var element = wait.Until(e => e.FindElement(Locator));
+        var element = wait.Until(ExpectedConditions.ElementToBeClickable(Locator));
         return element;
     }
 

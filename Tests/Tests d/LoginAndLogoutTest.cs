@@ -1,44 +1,36 @@
-﻿using Models_and_Steps.Steps;
+﻿using Allure.Net.Commons;
+using Models_and_Steps.Steps;
 using NUnit.Allure.Attributes;
 using NUnit.Allure.Core;
 using NUnit.Framework;
-using Pages.Pages;
 
 namespace Tests.Tests_d;
 
+[AllureFeature("Login and Logout Feature")]
 public class LoginAndLogoutTest : BaseTest
 {
     [Test]
     [Obsolete("Obsolete")]
     [Category("Acceptance Test")]
     [AllureDescription("Testing logging in and logging out features.")]
+    [AllureStory("Checking if we can log in to the existed account and then log out.")]
+    [AllureSeverity(SeverityLevel.critical)]
     public void TestLoginAndLogout()
     {
-        var mainPage = new MainPage("Main page");
-        var loginPage = new LoginPage("Login page");
         var loginAndLogoutSteps = new LoginAndLogoutSteps();
-        var projectsPage = new ProjectsPage("Projects Page");
 
         Allure.WrapInStep(() =>
         {
-            var isMainPageOpened = mainPage.IsPageOpened();
+            var isMainPageOpened = loginAndLogoutSteps.AreWeInMainPage();
             Assert.That(isMainPageOpened);
         }, "Checking if the main page is opened.");
-
-        Allure.WrapInStep(() => { mainPage.ClickLoginButton(); }, "Clicking on login button.");
-
-        Allure.WrapInStep(() =>
-        {
-            var isLoginPageOpened = loginPage.IsPageOpened();
-            Assert.That(isLoginPageOpened);
-        }, "Checking if the login page is opened.");
 
 
         Allure.WrapInStep(() => { loginAndLogoutSteps.Login(); }, "Performing login operation.");
 
         Allure.WrapInStep(() =>
         {
-            var isProjectsPageOpened = projectsPage.IsPageOpened();
+            var isProjectsPageOpened = loginAndLogoutSteps.AreWeLoggedIn();
             Assert.That(isProjectsPageOpened);
         }, "Checking if we logged in.");
 
@@ -46,7 +38,7 @@ public class LoginAndLogoutTest : BaseTest
 
         Allure.WrapInStep(() =>
         {
-            var isLoginPageOpened = loginPage.IsPageOpened();
+            var isLoginPageOpened = loginAndLogoutSteps.AreWeInLoginPage();
             Assert.That(isLoginPageOpened);
         }, "Checking if we logged out.");
     }

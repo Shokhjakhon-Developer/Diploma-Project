@@ -4,7 +4,7 @@ using Selenium_Wrapper.Utilities;
 
 namespace Selenium_Wrapper.Element_Wrapper.Elements;
 
-public class TextInputField : BaseElement,IInput
+public class TextInputField : BaseElement, IInput, IGetValue
 {
     public TextInputField(string name, By locator) : base(name, locator)
     {
@@ -21,5 +21,12 @@ public class TextInputField : BaseElement,IInput
         GetElement().Clear();
         EnterText(text);
         LLogger.Instance.Info($"Cleared then \"{text}\" was entered to {Name}.");
+    }
+
+    public string GetValue()
+    {
+        var text = GetElement().GetAttribute("value");
+        LLogger.Instance.Info($"\"{text}\" was received from {Name}.");
+        return text;
     }
 }

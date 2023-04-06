@@ -1,0 +1,99 @@
+2023-04-06 05:49:02 INFO - WebDriver with session id 3c4481ea135064366de695f67eb9bc34 is started.
+2023-04-06 05:49:02 INFO - WebDriver with session id 2b0c3a4c858ca63fd2fc995bde18e5ef is started.
+2023-04-06 05:49:02 INFO - WebDriver with session id b8030eeb1a59ac0eb880745864a879bd is started.
+2023-04-06 05:49:02 INFO - Current link: https://qase.io/
+2023-04-06 05:49:02 INFO - Current link: https://qase.io/
+2023-04-06 05:49:02 INFO - Current link: https://qase.io/
+2023-04-06 05:49:02 INFO - UniqueElement is displayed: True.
+2023-04-06 05:49:02 INFO - MainPage is opened: True.
+2023-04-06 05:49:02 INFO - WebDriver with session id 338ecf24d582c349810481340fc26cfb is started.
+2023-04-06 05:49:02 INFO - Current link: https://qase.io/
+2023-04-06 05:49:02 INFO - WebDriver with session id 9176528f2ee8d710a84e5a43df24a385 is started.
+2023-04-06 05:49:02 INFO - Current link: https://qase.io/
+2023-04-06 05:49:04 INFO - LoginButton was clicked.
+2023-04-06 05:49:04 INFO - LoginButton was clicked.
+2023-04-06 05:49:04 INFO - LoginButton was clicked.
+2023-04-06 05:49:04 INFO - LoginButton was clicked.
+2023-04-06 05:49:04 INFO - "qwerty123456789" was entered to PasswordField.
+2023-04-06 05:49:04 INFO - "qwerty123456789" was entered to PasswordField.
+2023-04-06 05:49:04 INFO - LoginButton was clicked.
+2023-04-06 05:49:04 INFO - "qwerty123456789" was entered to PasswordField.
+2023-04-06 05:49:04 INFO - "qwerty123456789" was entered to PasswordField.
+2023-04-06 05:49:04 INFO - "rs145609@gmail.com" was entered to EmailField.
+2023-04-06 05:49:04 INFO - "qwerty123456789" was entered to PasswordField.
+2023-04-06 05:49:04 INFO - "rs145609@gmail.com" was entered to EmailField.
+2023-04-06 05:49:04 INFO - "rs145609@gmail.com" was entered to EmailField.
+2023-04-06 05:49:04 INFO - "rs145609@gmail.com" was entered to EmailField.
+2023-04-06 05:49:04 INFO - "rs145609@gmail.com" was entered to EmailField.
+2023-04-06 05:49:07 INFO - SubmitLoginForm was clicked.
+2023-04-06 05:49:07 INFO - SubmitLoginForm was clicked.
+2023-04-06 05:49:07 INFO - SubmitLoginForm was clicked.
+2023-04-06 05:49:07 INFO - SubmitLoginForm was clicked.
+2023-04-06 05:49:07 INFO - Header is displayed: True.
+2023-04-06 05:49:07 INFO - ProjectsPage is opened: True.
+2023-04-06 05:49:07 INFO - Header is displayed: True.
+2023-04-06 05:49:07 INFO - Header is displayed: True.
+2023-04-06 05:49:07 INFO - ProjectsPage is opened: True.
+2023-04-06 05:49:07 INFO - ProjectsPage is opened: True.
+2023-04-06 05:49:07 INFO - Header is displayed: True.
+2023-04-06 05:49:07 INFO - ProjectsPage is opened: True.
+2023-04-06 05:49:07 INFO - AccountLabel was clicked.
+2023-04-06 05:49:07 INFO - AccountLabel was clicked.
+2023-04-06 05:49:07 INFO - DemoProjectsLabel was clicked.
+2023-04-06 05:49:07 INFO - SubmitLoginForm was clicked.
+2023-04-06 05:49:07 INFO - SignOutLabel was clicked.
+2023-04-06 05:49:07 INFO - ProfileLabel was clicked.
+2023-04-06 05:49:08 INFO - Header is displayed: True.
+2023-04-06 05:49:08 INFO - ProjectsPage is opened: True.
+2023-04-06 05:49:08 INFO - TestPlansLabel was clicked.
+2023-04-06 05:49:08 INFO - DemoProjectsLabel was clicked.
+2023-04-06 05:49:08 INFO - DefectsLabel was clicked.
+2023-04-06 05:49:08 INFO - "AQA Engineer" was entered to PositionField.
+2023-04-06 05:49:08 INFO - Cleared then "AQA Engineer" was entered to PositionField.
+2023-04-06 05:49:08 INFO - UpdateSettingsButton was clicked.
+2023-04-06 05:49:08 INFO - "AQA Engineer" was received from PositionField.
+2023-04-06 05:49:08 INFO - DemoProjectsLabel was clicked.
+2023-04-06 05:49:08 INFO - TestRunsLabel was clicked.
+2023-04-06 05:49:08 INFO - WebDriver with session 338ecf24d582c349810481340fc26cfb is finished.
+2023-04-06 05:49:08 INFO - HeaderLabel is displayed: True.
+2023-04-06 05:49:08 INFO - TestPlansPage is opened: True.
+2023-04-06 05:49:08 INFO - CreatePlanButton was clicked.
+2023-04-06 05:49:09 INFO - HeaderLabel is displayed: True.
+2023-04-06 05:49:09 INFO - DefectsPage is opened: True.
+2023-04-06 05:49:09 INFO - CreateDefectButton was clicked.
+2023-04-06 05:49:09 INFO - UniqueElement is displayed: True.
+2023-04-06 05:49:09 INFO - LoginPage is opened: True.
+2023-04-06 05:49:09 INFO - WebDriver with session b8030eeb1a59ac0eb880745864a879bd is finished.
+2023-04-06 05:49:09 INFO - StartNewTestRunButton was clicked.
+2023-04-06 05:49:09 INFO - "Performance" was entered to TitleField.
+2023-04-06 05:49:10 INFO - "Regression" was entered to TitleField.
+2023-04-06 05:49:10 INFO - "70% less performance than expected" was entered to ActualResultField.
+2023-04-06 05:49:10 INFO - ConfirmCreatingDefectButton was clicked.
+2023-04-06 05:49:10 INFO - AddTestsButton was clicked.
+2023-04-06 05:49:10 INFO - AuthorizationLabel was clicked.
+2023-04-06 05:49:10 INFO - "Performing regular regression test." was entered to DescriptionField.
+2023-04-06 05:49:10 INFO - DoneButton was clicked.
+2023-04-06 05:49:10 INFO - AddCasesButton was clicked.
+2023-04-06 05:49:10 INFO - StartRunButton was clicked.
+2023-04-06 05:49:10 INFO - AuthorizationLabel was clicked.
+2023-04-06 05:49:10 INFO - DoneButton was clicked.
+2023-04-06 05:49:10 INFO - CreatePlan was clicked.
+2023-04-06 05:49:11 INFO - "Regression" was received from PlanTitleLabel.
+2023-04-06 05:49:11 INFO - "Performance" was received from DefectTitleLabel.
+2023-04-06 05:49:11 INFO - DropDownLabel was clicked.
+2023-04-06 05:49:11 INFO - DropDown was clicked.
+2023-04-06 05:49:11 INFO - DeleteButton was clicked.
+2023-04-06 05:49:11 INFO - DeleteButton was clicked.
+2023-04-06 05:49:11 INFO - DeletePlanButton was clicked.
+2023-04-06 05:49:11 INFO - ConfirmDeleteButton was clicked.
+2023-04-06 05:49:11 INFO - OpenWizardButton is displayed: True.
+2023-04-06 05:49:11 INFO - TestRunsLabel was clicked.
+2023-04-06 05:49:11 INFO - NoPlansLabel is displayed: True.
+2023-04-06 05:49:11 INFO - WebDriver with session 2b0c3a4c858ca63fd2fc995bde18e5ef is finished.
+2023-04-06 05:49:11 INFO - NoPlansLabel is displayed: True.
+2023-04-06 05:49:12 INFO - WebDriver with session 9176528f2ee8d710a84e5a43df24a385 is finished.
+2023-04-06 05:49:12 INFO - DropDown was clicked.
+2023-04-06 05:49:12 INFO - DeleteButton was clicked.
+2023-04-06 05:49:12 INFO - ConfirmDeleteButton was clicked.
+2023-04-06 05:49:13 INFO - CleanUpConfirmationLabel is displayed: True.
+2023-04-06 05:49:13 INFO - WebDriver with session 3c4481ea135064366de695f67eb9bc34 is finished.

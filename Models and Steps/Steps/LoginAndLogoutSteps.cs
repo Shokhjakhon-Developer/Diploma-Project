@@ -1,27 +1,25 @@
-﻿using Models_and_Steps.Data;
-using Pages.Component;
+﻿using Pages.Component;
 using Pages.Pages;
 
 namespace Models_and_Steps.Steps;
 
-public class LoginAndLogoutSteps
+public class LoginAndLogoutSteps : BaseSteps
 {
-    private readonly LoginPage _loginPage;
     private readonly AccountBar _accountBar;
+    private readonly MainPage _mainPage;
 
     public LoginAndLogoutSteps()
     {
-        _loginPage = new LoginPage("Login page");
         _accountBar = new AccountBar("Account bar");
+        _mainPage = new MainPage("MainPage");
     }
 
-    public void Login()
+    public bool AreWeInMainPage()
     {
-        var user = UserLoginModelFactory.User1;
-        _loginPage.EnterPassword(user.Password);
-        _loginPage.EnterEmailAddress(user.Email);
-        _loginPage.ClickLogin();
+        var isMainPageOpened = _mainPage.IsPageOpened();
+        return isMainPageOpened;
     }
+
 
     public void Logout()
     {
