@@ -19,7 +19,7 @@ public abstract class BaseTest
     [SetUp]
     public void SetUp()
     {
-        _browser.GoToUrl(AppConfig.GetProperty("driver", "link"));
+        _browser.GoToUrl("https://qase.io/");
     }
 
     [TearDown]

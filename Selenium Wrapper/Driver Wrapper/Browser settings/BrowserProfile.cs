@@ -1,11 +1,10 @@
 ﻿using Selenium_Wrapper.Driver_Wrapper.Browser_options;
-using Selenium_Wrapper.Utilities;
 
 namespace Selenium_Wrapper.Driver_Wrapper.Browser_settings;
 
 public class BrowserProfile
 {
-    private readonly string _browserName = AppConfig.GetProperty("driver","browser");
+    private readonly string _browserName = "chrome";
 
     public OptionSettings DriverSettings
     {
