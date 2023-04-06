@@ -4,6 +4,7 @@ jobs:
     docker:
       - image: mcr.microsoft.com/devcontainers/dotnet:7.0
       - image: selenium/standalone-chrome:3.11.0
+      - image: cimg/node:16.13.1-browsers
     steps:
       - checkout    
       - setup_remote_docker
