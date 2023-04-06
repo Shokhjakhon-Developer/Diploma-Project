@@ -9,6 +9,7 @@ jobs:
       # specify the version you desire here
       - image: circleci/node:7.10
       - image: selenium/standalone-chrome:3.11.0
+      - image: mcr.microsoft.com/dotnet/sdk:7.0
       
       # Specify service dependencies here if necessary  
       # CircleCI maintains a library of pre-built images
@@ -51,8 +52,8 @@ jobs:
           command: npm install
         
       # run tests!
-      - run: 
-          name: run tests
-          command: node index.js
+      - run: dotnet restore
+      - run: dotnet build
+      - run: dotnet test
           
 
