@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace Tests.Tests_d;
 
-public class AuthorizationTest : BaseTest
+public class CreateAuthorizationTest : BaseTest
 {
     [Test]
     [Obsolete("Obsolete")]
