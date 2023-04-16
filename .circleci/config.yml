@@ -37,5 +37,8 @@ jobs:
 
       - store_test_results:
           path:  Tests/bin/Debug/net7.0/
+
+parallelism: 4
+
      
       
