@@ -11,8 +11,8 @@ jobs:
     steps:
       - checkout:
           path: ~/Diploma Project/Tests/
-      #- run: choco install googlechrome -y 
+      - run: choco install googlechrome -y 
       - run: pwd
-      #- run: dotnet build
-      #- run: dotnet test
+      - run: dotnet build
+      - run: dotnet test
       
