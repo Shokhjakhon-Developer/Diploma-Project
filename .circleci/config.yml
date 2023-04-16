@@ -5,6 +5,7 @@ orbs:
 
 jobs:
   build: # name of your job
+    working_directory: ~/Diploma Project/Tests/
     executor: win/default # executor type
 
     steps:
