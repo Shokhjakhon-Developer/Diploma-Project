@@ -9,9 +9,10 @@ jobs:
     executor: win/default # executor type
 
     steps:
-      # Commands are run in a Windows virtual machine environment
-      - run: choco install googlechrome -y 
+      - checkout:
+          path: ~/Diploma Project/Tests/
+      #- run: choco install googlechrome -y 
       - run: pwd
-      - run: dotnet build
-      - run: dotnet test
+      #- run: dotnet build
+      #- run: dotnet test
       
