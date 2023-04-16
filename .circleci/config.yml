@@ -12,11 +12,7 @@ jobs:
       - checkout:
           path: ~/Diploma Project/Tests/
       - run: choco install googlechrome -y 
-      - run: pwd
       - run: dotnet build
       - run: dotnet test
-      - run: iwr -useb get.scoop.sh | iex
-      - run: scoop install allure
-      - store_artifacts:
-          path: /home/circleci/project/allure-report
+     
       
