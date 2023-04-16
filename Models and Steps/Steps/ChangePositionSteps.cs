@@ -1,5 +1,6 @@
 ﻿using Models_and_Steps.Data;
 using Models_and_Steps.Models;
+using OpenQA.Selenium;
 using Pages.Component;
 using Pages.Pages;
 
@@ -11,10 +12,10 @@ public class ChangePositionSteps : BaseSteps
     private readonly ProfilePage _profilePage;
     private readonly UserProfileModel _profile = UserProfileModelFactory.UserProfile1;
 
-    public ChangePositionSteps()
+    public ChangePositionSteps(IWebDriver driver) : base(driver)
     {
-        _accountBar = new AccountBar("AccountBar");
-        _profilePage = new ProfilePage("ProfilePage");
+        _accountBar = new AccountBar("AccountBar",driver);
+        _profilePage = new ProfilePage("ProfilePage",driver);
     }
 
 

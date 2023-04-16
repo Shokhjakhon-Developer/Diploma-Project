@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-using Selenium_Wrapper.Element_Wrapper.Elements;
+using Selenium_Wrapper.Utilities;
 
 namespace Pages.Pages;
 
@@ -7,10 +7,9 @@ public class TestRunsPage : BasePage
 {
     private readonly TestRunsPageMap _map;
 
-    public TestRunsPage(string name) : base(name)
+    public TestRunsPage(string name, IWebDriver driver) : base(name, driver)
     {
-        _map = new TestRunsPageMap();
-        UniqueElement = _map.UniqueElement;
+        _map = new TestRunsPageMap(driver);
     }
 
     public void ClickOnStartNewTestRuns()
@@ -40,7 +39,7 @@ public class TestRunsPage : BasePage
 
     public bool IsButtonDisplayed()
     {
-        return _map.OpenWizardBtn.IsDisplayed();
+        return _map.OpenWizardBtn.Displayed;
     }
 
     public void ClickOnDropdown()
@@ -60,39 +59,48 @@ public class TestRunsPage : BasePage
 
     public bool IsCleanedUp()
     {
-        return _map.CleanUpConfirmation.IsDisplayed();
+        return _map.CleanUpConfirmation.Displayed;
     }
+
+    protected override IWebElement UniqueElement => _map.UniqueElement;
 }
 
 internal class TestRunsPageMap : BaseMap
 {
-    public TestRunsPageMap()
+    public TestRunsPageMap(IWebDriver driver) : base(driver)
     {
-        UniqueElement = new Label("Header", By.XPath("//div[@class=\"col-lg-12\"]/h1"));
     }
 
-    public readonly Button StartNewTestRuns = new("StartNewTestRunButton",
+    public override IWebElement UniqueElement =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//div[@class=\"col-lg-12\"]/h1"));
+
+    public IWebElement StartNewTestRuns => Helper.FindElementWithWait(GetWebDriver,
         By.XPath("//div[@class=\"d-flex mt-3\"]/button[contains(@class,\"Uzx\")]"));
 
-    public readonly Label AuthorizationTest = new("AuthorizationLabel",
+    public IWebElement AuthorizationTest => Helper.FindElementWithWait(GetWebDriver,
         By.XPath("//div[@id=\"suite-1-checkbox\"]"));
 
-    public readonly Label AddTests =
-        new("AddTestsButton", By.XPath("//button[contains(text(),\"Add/modify\")]"));
+    public IWebElement AddTests =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//button[contains(text(),\"Add/modify\")]"));
 
-    public readonly Button DoneBtn = new("DoneButton", By.XPath("//span[contains(text(),\"Done\")]"));
+    public IWebElement DoneBtn =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Done\")]"));
 
-    public readonly Button StartRunBtn = new("StartRunButton", By.XPath("//span[contains(text(),\"Start a run\")]"));
+    public IWebElement StartRunBtn =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Start a run\")]"));
 
-    public readonly Button OpenWizardBtn = new("OpenWizardButton", By.XPath("//button[@id=\"open-wizard\"]"));
+    public IWebElement OpenWizardBtn =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//button[@id=\"open-wizard\"]"));
 
-    public readonly Label DropDown = new("DropDown", By.XPath("//a[@class=\"btn btn-dropdown\"]"));
+    public IWebElement DropDown =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"btn btn-dropdown\"]"));
 
-    public readonly Button Delete = new("DeleteButton", By.XPath("//span[contains(text(),\"Delete\")]"));
+    public IWebElement Delete =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Delete\")]"));
 
-    public readonly Button ConfirmDelete = new("ConfirmDeleteButton",
+    public IWebElement ConfirmDelete => Helper.FindElementWithWait(GetWebDriver,
         By.XPath("//span[@class=\"ZwgkIF\" and contains(text(),\"Delete\")]"));
 
-    public readonly Label CleanUpConfirmation =
-        new Label("CleanUpConfirmationLabel", By.XPath("//div[contains(text(),\"Looks like\")]"));
+    public IWebElement CleanUpConfirmation =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//div[contains(text(),\"Looks like\")]"));
 }

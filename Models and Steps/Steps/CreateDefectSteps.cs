@@ -1,5 +1,6 @@
 ﻿using Models_and_Steps.Data;
 using Models_and_Steps.Models;
+using OpenQA.Selenium;
 using Pages.Pages;
 
 namespace Models_and_Steps.Steps;
@@ -9,9 +10,9 @@ public class CreateDefectSteps : BaseSteps
     private readonly DefectsPage _defectsPage;
     private readonly DefectModel _model = DefectModelFactory.Model;
 
-    public CreateDefectSteps()
+    public CreateDefectSteps(IWebDriver driver) : base(driver)
     {
-        _defectsPage = new DefectsPage("DefectsPage");
+        _defectsPage = new DefectsPage("DefectsPage", driver);
     }
 
     public void ClickOnDefects()
@@ -31,24 +32,23 @@ public class CreateDefectSteps : BaseSteps
         return this;
     }
 
-    public CreateDefectSteps EnterTitleAndResult()
+    public void EnterTitleAndResult()
     {
         _defectsPage.EnterTitle(_model.DefectTitle);
         _defectsPage.EnterActualResult(_model.ActualResult);
-        return this;
     }
 
-    public CreateDefectSteps ConfirmCreatingDefect()
+    public void ConfirmCreatingDefect()
     {
         _defectsPage.CreateDefect();
-        return this;
     }
 
     public bool IsDefectCreated()
     {
-        var actual = _defectsPage.GetDefectTitle();
-        var expected = _model.DefectTitle;
-        return actual.Equals(expected);
+        var actualTitle = _defectsPage.GetDefectTitle();
+        var expectedTitle = _model.DefectTitle;
+        var result = actualTitle.Equals(expectedTitle);
+        return result;
     }
 
     public void CleanUp()

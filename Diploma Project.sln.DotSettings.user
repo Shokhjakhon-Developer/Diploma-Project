@@ -8,5 +8,6 @@
     &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.CreateTestPlansTest.TestCreatingTestPlans&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.CreatingDefectTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.CreateAuthorizationTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.CreateTestPlansTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

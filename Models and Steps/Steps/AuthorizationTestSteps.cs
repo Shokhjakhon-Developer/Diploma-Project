@@ -1,4 +1,5 @@
-﻿using Pages.Pages;
+﻿using OpenQA.Selenium;
+using Pages.Pages;
 
 namespace Models_and_Steps.Steps;
 
@@ -6,46 +7,40 @@ public class AuthorizationTestSteps : BaseSteps
 {
     private readonly TestRunsPage _testRunsPage;
 
-    public AuthorizationTestSteps()
+    public AuthorizationTestSteps(IWebDriver driver) : base(driver)
     {
-        _testRunsPage = new TestRunsPage("TestRunsPage");
+        _testRunsPage = new TestRunsPage("TestRunsPage", driver);
     }
 
-    public AuthorizationTestSteps ClickOnDemoProjects()
+    public void ClickOnDemoProjects()
     {
         ProjectsPage.ClickOnDemoProjects();
-        return this;
     }
 
-    public AuthorizationTestSteps ClickOnTestRuns()
+    public void ClickOnTestRuns()
     {
         ProjectsPage.ClickOnTestRuns();
-        return this;
     }
 
-    public AuthorizationTestSteps ClickOnStartNewTestRuns()
+    public void ClickOnStartNewTestRuns()
     {
         _testRunsPage.ClickOnStartNewTestRuns();
-        return this;
     }
 
-    public AuthorizationTestSteps ClickOnAddTests()
+    public void ClickOnAddTests()
     {
         _testRunsPage.ClickOnAddTests();
-        return this;
     }
 
-    public AuthorizationTestSteps AddAuthorizationTests()
+    public void AddAuthorizationTests()
     {
         _testRunsPage.ClickOnAuthorizationTests();
         _testRunsPage.ClickOnDoneButton();
-        return this;
     }
 
-    public AuthorizationTestSteps ClickOnStartRun()
+    public void ClickOnStartRun()
     {
         _testRunsPage.ClickOnStartRunButton();
-        return this;
     }
 
     public bool IsTestLaunched()

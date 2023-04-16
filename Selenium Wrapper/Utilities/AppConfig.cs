@@ -1,29 +1,24 @@
-﻿using System.Text.Json;
-
+﻿
 namespace Selenium_Wrapper.Utilities;
-
-public static class AppConfig
+public class AppConfig
 {
-    private static readonly Json JsonSetUp =
-        new(Directory.GetCurrentDirectory() + @"..\..\..\..\appSettings.json");
-
-    public static string GetProperty(string property) => JsonSetUp.Root.GetProperty(property).ToString();
-
-    public static string GetProperty(string property1, string property2) =>
-        JsonSetUp.Root.GetProperty(property1).GetProperty(property2).ToString();
-
-    public static string GetProperty(string property1, string property2, string property3) =>
-        JsonSetUp.Root.GetProperty(property1).GetProperty(property2).GetProperty(property3).ToString();
+    public Driver Driver { get; set; }
 }
 
-internal class Json
+public class Driver
 {
-    public JsonElement Root { get; }
+    public string Browser { get; set; }
+    public string Link { get; set; }
+    public BOptions ChromeOptions { get; set; }
 
-    public Json(string path)
+
+    public class BOptions
     {
-        string jsonData = File.ReadAllText(path);
-        JsonDocument jsonDocument = JsonDocument.Parse(jsonData);
-        Root = jsonDocument.RootElement;
+        public string Disable_extensions { get; set; }
+        public string No_sandbox { get; set; }
+        public string Disable_dev_shm_usage { get; set; }
+        public string Headless { get; set; }
+        public string Window_size { get; set; }
+
     }
 }

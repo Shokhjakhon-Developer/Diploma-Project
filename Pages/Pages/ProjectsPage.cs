@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-using Selenium_Wrapper.Element_Wrapper.Elements;
+using Selenium_Wrapper.Utilities;
 
 namespace Pages.Pages;
 
@@ -7,10 +7,9 @@ public class ProjectsPage : BasePage
 {
     private readonly ProjectsPageMap _map;
 
-    public ProjectsPage(string name) : base(name)
+    public ProjectsPage(string name, IWebDriver driver) : base(name, driver)
     {
-        _map = new ProjectsPageMap();
-        UniqueElement = _map.UniqueElement;
+        _map = new ProjectsPageMap(driver);
     }
 
     public void ClickOnDemoProjects()
@@ -32,20 +31,28 @@ public class ProjectsPage : BasePage
     {
         _map.Defects.Click();
     }
+
+    protected override IWebElement UniqueElement => _map.UniqueElement;
 }
 
 internal class ProjectsPageMap : BaseMap
 {
-    public ProjectsPageMap()
+    public ProjectsPageMap(IWebDriver driver) : base(driver)
     {
-        UniqueElement = new Label("Header", By.XPath("//div[@class=\"col-lg-12\"]/h1"));
     }
 
-    public readonly Label DemoProjects = new("DemoProjectsLabel", By.XPath("//a[contains(text(),\"Demo Project\")]"));
+    public override IWebElement UniqueElement =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//div[@class=\"col-lg-12\"]/h1"));
 
-    public readonly Label TestRuns = new("TestRunsLabel", By.XPath("//span[contains(text(),\"Test Runs\")]"));
+    public IWebElement DemoProjects =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[contains(text(),\"Demo Project\")]"));
 
-    public readonly Label TestPlans = new("TestPlansLabel", By.XPath("//span[contains(text(),\"Test Plans\")]"));
+    public IWebElement TestRuns =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Test Runs\")]"));
 
-    public readonly Label Defects = new("DefectsLabel", By.XPath("//span[contains(text(),\"Defects\")]"));
+    public IWebElement TestPlans =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Test Plans\")]"));
+
+    public IWebElement Defects =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Defects\")]"));
 }

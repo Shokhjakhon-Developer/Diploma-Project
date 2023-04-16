@@ -1,10 +1,10 @@
-﻿using Allure.Net.Commons;
+﻿using Models_and_Steps.Steps;
 using NUnit.Allure.Attributes;
 using NUnit.Allure.Core;
 using NUnit.Framework;
-using Selenium_Wrapper.Driver_Wrapper.Browser;
-using Selenium_Wrapper.Driver_Wrapper.Browser_settings;
-using Selenium_Wrapper.Utilities;
+using OpenQA.Selenium;
+using Selenium_Wrapper.Browser.Browser;
+
 
 namespace Tests.Tests_d;
 
@@ -13,18 +13,18 @@ namespace Tests.Tests_d;
 [TestFixture, Parallelizable]
 public abstract class BaseTest
 {
-    private readonly Browser _browser = BrowserService.Browser;
-    protected readonly AllureLifecycle Allure = AllureLifecycle.Instance;
+    protected IWebDriver Driver;
 
-    [SetUp]
+    [OneTimeSetUp]
     public void SetUp()
     {
-        _browser.GoToUrl("https://qase.io/");
+        Driver = new Browser().BrowserInit();
+        new LoginAndLogoutSteps(Driver).Login();
     }
 
     [TearDown]
     public void TearDown()
     {
-        _browser.Quit();
+        Driver.Quit();
     }
 }

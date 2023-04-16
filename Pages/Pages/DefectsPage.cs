@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-using Selenium_Wrapper.Element_Wrapper.Elements;
+using Selenium_Wrapper.Utilities;
 
 namespace Pages.Pages;
 
@@ -7,10 +7,9 @@ public class DefectsPage : BasePage
 {
     private readonly DefectsPageMap _map;
 
-    public DefectsPage(string name) : base(name)
+    public DefectsPage(string name, IWebDriver driver) : base(name, driver)
     {
-        _map = new DefectsPageMap();
-        UniqueElement = _map.UniqueElement;
+        _map = new DefectsPageMap(driver);
     }
 
     public void ClickOnCreateDefect()
@@ -20,12 +19,12 @@ public class DefectsPage : BasePage
 
     public void EnterTitle(string title)
     {
-        _map.TitleField.EnterText(title);
+        _map.TitleField.SendKeys(title);
     }
 
     public void EnterActualResult(string result)
     {
-        _map.ActualResultField.EnterText(result);
+        _map.ActualResultField.SendKeys(result);
     }
 
     public void CreateDefect()
@@ -35,9 +34,9 @@ public class DefectsPage : BasePage
 
     public string GetDefectTitle()
     {
-        return _map.DefectTitle.GetText();
+        return _map.DefectTitle.Text;
     }
-
+    
     public void ClickOnDropDown()
     {
         _map.DropDown.Click();
@@ -56,34 +55,45 @@ public class DefectsPage : BasePage
 
     public bool IsNoDefectDisplayed()
     {
-        return _map.NoDefects.IsDisplayed();
+        return _map.NoDefects.Displayed;
     }
+
+    protected override IWebElement UniqueElement => _map.UniqueElement;
 }
 
 internal class DefectsPageMap : BaseMap
 {
-    public DefectsPageMap()
+    public DefectsPageMap(IWebDriver driver) : base(driver)
     {
-        UniqueElement = new Label("HeaderLabel", By.XPath("//h1[contains(text(),\"Defects\")]"));
     }
 
-    public readonly Button CreateDefect = new("CreateDefectButton", By.XPath("//a[@class=\"btn btn-primary\"]"));
+    public override IWebElement UniqueElement =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//h1[contains(text(),\"Defects\")]"));
 
-    public readonly TextInputField TitleField = new("TitleField", By.XPath("//input[@id=\"title\"]"));
 
-    public readonly TextInputField ActualResultField =
-        new("ActualResultField", By.XPath("//div[@contenteditable=\"true\"]/p"));
+    public IWebElement CreateDefect =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"btn btn-primary\"]"));
 
-    public readonly Button ConfirmCreatingDefect = new("ConfirmCreatingDefectButton",
-        By.XPath("//button[contains(text(),\"Create\")]"));
+    public IWebElement TitleField => Helper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"title\"]"));
 
-    public readonly Label DefectTitle = new("DefectTitleLabel", By.XPath("//a[@class=\"defect-title\"]"));
+    public IWebElement ActualResultField =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//div[@contenteditable=\"true\"]/p"));
 
-    public readonly Label DropDown = new("DropDown", By.XPath("//a[@class=\"btn btn-dropdown\"]"));
+    public IWebElement ConfirmCreatingDefect =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//button[contains(text(),\"Create\")]"));
 
-    public readonly Button DeleteOption = new("DeleteButton", By.XPath("//a[contains(text(),\"Delete\")]"));
+    public IWebElement DefectTitle =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"defect-title\"]"));
 
-    public readonly Button ConfirmDelete = new("ConfirmDeleteButton", By.XPath("//span[contains(text(),\"Delete\")]"));
+    public IWebElement DropDown =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"btn btn-dropdown\"]"));
 
-    public readonly Label NoDefects = new("NoPlansLabel", By.XPath("//div[contains(text(),\"Looks like\")]"));
+    public IWebElement DeleteOption =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[contains(text(),\"Delete\")]"));
+
+    public IWebElement ConfirmDelete =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Delete\")]"));
+
+    public IWebElement NoDefects =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//div[contains(text(),\"Looks like\")]"));
 }

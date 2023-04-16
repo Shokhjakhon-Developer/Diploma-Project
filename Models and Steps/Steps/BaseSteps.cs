@@ -1,4 +1,5 @@
 ﻿using Models_and_Steps.Data;
+using OpenQA.Selenium;
 using Pages.Pages;
 
 namespace Models_and_Steps.Steps;
@@ -10,16 +11,16 @@ public abstract class BaseSteps
     protected readonly ProjectsPage ProjectsPage;
 
 
-    public bool AreWeInLoginPage()
+    public bool AreWeLoggedOut()
     {
         return _loginPage.IsPageOpened();
     }
 
-    protected BaseSteps()
+    protected BaseSteps(IWebDriver driver)
     {
-        _loginPage = new LoginPage("LoginPage");
-        _mainPage = new MainPage("MainPage");
-        ProjectsPage = new ProjectsPage("ProjectsPage");
+        _loginPage = new LoginPage("LoginPage", driver);
+        _mainPage = new MainPage("MainPage",driver);
+        ProjectsPage = new ProjectsPage("ProjectsPage",driver);
     }
 
     public void Login()

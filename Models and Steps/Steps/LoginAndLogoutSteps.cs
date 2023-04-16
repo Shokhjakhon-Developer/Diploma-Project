@@ -1,4 +1,5 @@
-﻿using Pages.Component;
+﻿using OpenQA.Selenium;
+using Pages.Component;
 using Pages.Pages;
 
 namespace Models_and_Steps.Steps;
@@ -8,10 +9,10 @@ public class LoginAndLogoutSteps : BaseSteps
     private readonly AccountBar _accountBar;
     private readonly MainPage _mainPage;
 
-    public LoginAndLogoutSteps()
+    public LoginAndLogoutSteps(IWebDriver driver):base(driver)
     {
-        _accountBar = new AccountBar("Account bar");
-        _mainPage = new MainPage("MainPage");
+        _accountBar = new AccountBar("Account bar",driver);
+        _mainPage = new MainPage("MainPage",driver);
     }
 
     public bool AreWeInMainPage()

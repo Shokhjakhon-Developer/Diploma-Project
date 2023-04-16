@@ -1,5 +1,6 @@
 ﻿using Models_and_Steps.Data;
 using Models_and_Steps.Models;
+using OpenQA.Selenium;
 using Pages.Pages;
 
 namespace Models_and_Steps.Steps;
@@ -9,9 +10,10 @@ public class CreateTestPlanSteps : BaseSteps
     private readonly TestPlansPage _testPlansPage;
     private readonly TestPlanModel _model = TestPlanModelFactory.Model1;
 
-    public CreateTestPlanSteps()
+    
+    public  CreateTestPlanSteps(IWebDriver driver):base(driver)
     {
-        _testPlansPage = new TestPlansPage("TestPlansPage");
+        _testPlansPage = new TestPlansPage("TestPlansPage",driver);
     }
 
     public bool AreWeInTestPlansPage()
@@ -25,37 +27,37 @@ public class CreateTestPlanSteps : BaseSteps
         ProjectsPage.ClickOnTestPlans();
     }
 
-    public CreateTestPlanSteps CreateTestPlans()
+    public void CreateTestPlans()
     {
         _testPlansPage.CreateTestPlan();
-        return this;
+        
     }
 
-    public CreateTestPlanSteps EnterTitleAndDescription()
+    public void EnterTitleAndDescription()
     {
         _testPlansPage.EnterTitle(_model.Title);
         _testPlansPage.EnterDescription(_model.Description);
-        return this;
+        
     }
 
-    public CreateTestPlanSteps AddCase()
+    public void AddCase()
     {
         _testPlansPage.ClickOnAddCasesButton();
-        return this;
+        
     }
 
-    public CreateTestPlanSteps AddAuthorizationTest()
+    public void AddAuthorizationTest()
     {
         _testPlansPage.ClickOnAuthorizationTest();
         _testPlansPage.ClickOnDoneButton();
-        return this;
+        
     }
 
 
-    public CreateTestPlanSteps CreatePlan()
+    public void CreatePlan()
     {
         _testPlansPage.ClickOnCreatePlanButton();
-        return this;
+        
     }
 
     public bool IsPlanCreated()
