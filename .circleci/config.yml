@@ -1,18 +1,38 @@
-version: 2.1 # Use version 2.1 to enable Orb usage.
+version: 2.1 
 
 orbs:
-  win: circleci/windows@5.0 # The Windows orb gives you everything you need to start using the Windows executor.
+  win: circleci/windows@5.0 
 
 jobs:
-  build: # name of your job
-    working_directory: ~/Diploma Project/Tests/
-    executor: win/default # executor type
+  build: 
+    executor: win/default 
+    working_directory: ~/project
+
 
     steps:
-      - checkout:
-          path: ~/Diploma Project/Tests/
-      - run: choco install googlechrome -y 
-      - run: dotnet build
-      - run: dotnet test
+      - checkout
+      - run:
+         name: "Installing chrome browser"
+         command: choco install googlechrome -y 
+        
+      - run:
+         name: "Building project"
+         command: dotnet build
+
+      - run:
+         name: "Starting tests"
+         command: dotnet test
+
+      - run:
+          name: 'Installing allure report'
+          command: |
+            iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
+            scoop install allure
+            echo Allure version: $(allure --version)
+            allure generate Qase/bin/Debug/net6.0/allure-results
+          when: always
+
+      - store_artifacts:
+          path: allure-report
      
       
