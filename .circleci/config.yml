@@ -29,7 +29,7 @@ jobs:
             iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
             scoop install allure
             echo Allure version: $(allure --version)
-            allure generate Qase/bin/Debug/net6.0/allure-results
+            allure generate Tests/bin/Debug/net7.0/allure-results
           when: always
 
       - store_artifacts:
