@@ -36,6 +36,6 @@ jobs:
           path: allure-report
 
       - store_test_results:
-          path:  Project/Tests/bin/Debug/net7.0/
+          path:  Tests/bin/Debug/net7.0/
      
       
