@@ -11,7 +11,7 @@ jobs:
 
     steps:
       # Commands are run in a Windows virtual machine environment
-      - run: winget install Google.Chrome
+      - run: install Google.Chrome
       - run: dotnet build
       - run: dotnet test
       
