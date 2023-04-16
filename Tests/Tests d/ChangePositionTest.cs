@@ -10,7 +10,7 @@ public class ChangePositionTest : BaseTest
     private ChangePositionSteps _changePositionSteps;
 
     [SetUp]
-    public void SetUpTest()
+    public void TestSetUp()
     {
         _changePositionSteps = new ChangePositionSteps(Driver);
     }
