@@ -2,8 +2,6 @@ version: 2.1 # Use version 2.1 to enable Orb usage.
 
 orbs:
   win: circleci/windows@5.0 # The Windows orb gives you everything you need to start using the Windows executor.
-  browser-tools: circleci/browser-tools@1.4.1
-
 
 jobs:
   build: # name of your job
