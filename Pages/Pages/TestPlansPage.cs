@@ -12,6 +12,11 @@ public class TestPlansPage : BasePage
         _map = new TestPlanPageMap(driver);
     }
 
+    public void ClickOnTestPlan()
+    {
+        _map.PlanTitle.Click();
+    }
+
     public void CreateTestPlan()
     {
         _map.CreatePlan.Click();
@@ -72,6 +77,11 @@ public class TestPlansPage : BasePage
         return _map.NoPlans.Displayed;
     }
 
+    public IWebElement GetActualDescriptionLabel()
+    {
+        return _map.ActualDescription;
+    }
+
     protected override IWebElement UniqueElement => _map.UniqueElement;
 }
 
@@ -104,6 +114,9 @@ internal class TestPlanPageMap : BaseMap
 
     public IWebElement CreatePlanButton =>
         Helper.FindElementWithWait(GetWebDriver, By.XPath("//button[@id=\"save-plan\"]"));
+
+    public IWebElement ActualDescription =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//div[@class=\"toastui-editor-contents\"]/p"));
 
     public IWebElement PlanTitle => Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"defect-title\"]"));
     public IWebElement DropDown => Helper.FindElementWithWait(GetWebDriver, By.XPath("//td/button"));

@@ -1,5 +1,4 @@
-﻿using Models_and_Steps.Data;
-using Models_and_Steps.Models;
+﻿using Models_and_Steps.Models;
 using OpenQA.Selenium;
 using Pages.Pages;
 
@@ -8,12 +7,12 @@ namespace Models_and_Steps.Steps;
 public class CreateDefectSteps : BaseSteps
 {
     private readonly DefectsPage _defectsPage;
-    private readonly DefectModel _model = DefectModelFactory.Model;
 
     public CreateDefectSteps(IWebDriver driver) : base(driver)
     {
         _defectsPage = new DefectsPage("DefectsPage", driver);
     }
+
 
     public void ClickOnDefects()
     {
@@ -26,16 +25,15 @@ public class CreateDefectSteps : BaseSteps
         return _defectsPage.IsPageOpened();
     }
 
-    public CreateDefectSteps CreateDefect()
+    public void CreateDefect()
     {
         _defectsPage.ClickOnCreateDefect();
-        return this;
     }
 
-    public void EnterTitleAndResult()
+    public void EnterTitleAndResult(DefectModel model)
     {
-        _defectsPage.EnterTitle(_model.DefectTitle);
-        _defectsPage.EnterActualResult(_model.ActualResult);
+        _defectsPage.EnterTitle(model.DefectTitle);
+        _defectsPage.EnterActualResult(model.ActualResult);
     }
 
     public void ConfirmCreatingDefect()
@@ -43,23 +41,24 @@ public class CreateDefectSteps : BaseSteps
         _defectsPage.CreateDefect();
     }
 
-    public bool IsDefectCreated()
+    public string GetActualTitle()
     {
         var actualTitle = _defectsPage.GetDefectTitle();
-        var expectedTitle = _model.DefectTitle;
-        var result = actualTitle.Equals(expectedTitle);
-        return result;
+        return actualTitle;
+    }
+
+    public string GetActualDescription()
+    {
+        _defectsPage.ClickOnDefectTitle();
+        var actualTitle = _defectsPage.GetActualDescription().Text;
+        return actualTitle;
     }
 
     public void CleanUp()
     {
+        ProjectsPage.ClickOnDefects();
         _defectsPage.ClickOnDropDown();
         _defectsPage.ClickOnDeleteOption();
         _defectsPage.ConfirmDeletion();
-    }
-
-    public bool IsCleanedUp()
-    {
-        return _defectsPage.IsNoDefectDisplayed();
     }
 }

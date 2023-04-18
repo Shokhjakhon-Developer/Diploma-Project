@@ -12,6 +12,10 @@ public class DefectsPage : BasePage
         _map = new DefectsPageMap(driver);
     }
 
+    public void ClickOnDefectTitle()
+    {
+        _map.DefectTitle.Click();   
+    }
     public void ClickOnCreateDefect()
     {
         _map.CreateDefect.Click();
@@ -47,6 +51,11 @@ public class DefectsPage : BasePage
         _map.DeleteOption.Click();
     }
 
+    public IWebElement GetActualDescription()
+    {
+        return _map.ActualDescription;
+    }
+
 
     public void ConfirmDeletion()
     {
@@ -66,6 +75,9 @@ internal class DefectsPageMap : BaseMap
     public DefectsPageMap(IWebDriver driver) : base(driver)
     {
     }
+    
+    public IWebElement ActualDescription =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//div[@class=\"toastui-editor-contents\"]/p"));
 
     public override IWebElement UniqueElement =>
         Helper.FindElementWithWait(GetWebDriver, By.XPath("//h1[contains(text(),\"Defects\")]"));

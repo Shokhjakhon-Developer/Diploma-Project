@@ -1,4 +1,5 @@
-﻿using Models_and_Steps.Steps;
+﻿using Models_and_Steps.Data;
+using Models_and_Steps.Steps;
 using NUnit.Allure.Attributes;
 using NUnit.Allure.Core;
 using NUnit.Framework;
@@ -18,8 +19,9 @@ public abstract class BaseTest
     [OneTimeSetUp]
     public void SetUp()
     {
+        var user = UserLoginModelFactory.User1;
         Driver = new Browser().BrowserInit();
-        new LoginAndLogoutSteps(Driver).Login();
+        new LoginAndLogoutSteps(Driver).Login(user);
     }
 
     [TearDown]

@@ -10,7 +10,6 @@ public class ChangePositionSteps : BaseSteps
 {
     private readonly AccountBar _accountBar;
     private readonly ProfilePage _profilePage;
-    private readonly UserProfileModel _profile = UserProfileModelFactory.UserProfile1;
 
     public ChangePositionSteps(IWebDriver driver) : base(driver)
     {
@@ -19,20 +18,19 @@ public class ChangePositionSteps : BaseSteps
     }
 
 
-    public void ChangePosition()
+    public void ChangePosition(string position)
     {
         _accountBar.ClickOnAccountBar();
         _accountBar.ClickOnProfile();
-        _profilePage.EnterPosition(_profile.Position);
+        _profilePage.EnterPosition(position);
         _profilePage.ClickOnUpdateSettings();
     }
 
     
 
-    public bool IsPositionChanged()
+    public string GetActualPosition()
     {
         var actualPosition = _profilePage.GetPosition();
-        var expectedPosition = _profile.Position;
-        return actualPosition.Equals(expectedPosition);
+        return actualPosition;
     }
 }

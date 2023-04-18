@@ -1,4 +1,6 @@
 ﻿using Allure.Net.Commons;
+using Models_and_Steps.Data;
+using Models_and_Steps.Models;
 using Models_and_Steps.Steps;
 using NUnit.Allure.Attributes;
 using NUnit.Framework;
@@ -23,12 +25,18 @@ public class CreatingDefectTest : BaseTest
     [AllureSeverity(SeverityLevel.critical)]
     public void TestCreatingDefect()
     {
+        DefectModel model = DefectModelFactory.Model;
         _createDefectSteps.ClickOnDefects();
 
         _createDefectSteps.CreateDefect();
-        _createDefectSteps.EnterTitleAndResult();
+        _createDefectSteps.EnterTitleAndResult(model);
         _createDefectSteps.ConfirmCreatingDefect();
-        Assert.That(_createDefectSteps.IsDefectCreated(), Is.True, "Defect is not created");
+
+        var actualTitle = _createDefectSteps.GetActualTitle();
+        var actualDescription = _createDefectSteps.GetActualDescription();
+
+        Assert.That(actualTitle, Is.EqualTo(model.DefectTitle), "Defect title is not matched");
+        Assert.That(actualDescription, Is.EqualTo(model.ActualResult), "Defect description is not matched");
     }
 
     [TearDown]

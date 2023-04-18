@@ -1,4 +1,4 @@
-﻿using Models_and_Steps.Data;
+﻿using Models_and_Steps.Models;
 using OpenQA.Selenium;
 using Pages.Pages;
 
@@ -23,9 +23,8 @@ public abstract class BaseSteps
         ProjectsPage = new ProjectsPage("ProjectsPage",driver);
     }
 
-    public void Login()
+    public void Login(UserLoginModel user)
     {
-        var user = UserLoginModelFactory.User1;
         _mainPage.ClickLoginButton();
         _loginPage.EnterPassword(user.Password);
         _loginPage.EnterEmailAddress(user.Email);

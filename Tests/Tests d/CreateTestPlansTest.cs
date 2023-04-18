@@ -1,4 +1,6 @@
 ﻿using Allure.Net.Commons;
+using Models_and_Steps.Data;
+using Models_and_Steps.Models;
 using Models_and_Steps.Steps;
 using NUnit.Allure.Attributes;
 using NUnit.Framework;
@@ -23,14 +25,20 @@ public class CreateTestPlansTest : BaseTest
     [AllureSeverity(SeverityLevel.critical)]
     public void TestCreatingTestPlans()
     {
+        TestPlanModel model = TestPlanModelFactory.Model1;
+
         _createTestPlanSteps.ClickOnTestPlans();
         _createTestPlanSteps.CreateTestPlans();
-        _createTestPlanSteps.EnterTitleAndDescription();
+        _createTestPlanSteps.EnterTitleAndDescription(model);
         _createTestPlanSteps.AddCase();
         _createTestPlanSteps.AddAuthorizationTest();
         _createTestPlanSteps.CreatePlan();
-
-        Assert.That(_createTestPlanSteps.IsPlanCreated(), Is.True, "Test plan is not created.");
+        
+        var actualTitle = _createTestPlanSteps.GetActualTitle();
+        var actualDescription = _createTestPlanSteps.GetActualDescription();
+        
+        Assert.That(actualTitle, Is.EqualTo(model.Title), "Test plan title is not matched.");
+        Assert.That(actualDescription, Is.EqualTo(model.Description), "Test plan description is not matched.");
     }
 
     [TearDown]
