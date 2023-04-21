@@ -7,11 +7,11 @@ using OpenQA.Selenium;
 using Selenium_Wrapper.Browser.Browser;
 
 
-namespace Tests.Tests_d;
+namespace Tests.Tests_d.UI_Tests;
 
 [AllureNUnit]
 [AllureSuite("Acceptance Test")]
-[TestFixture, Parallelizable]
+[TestFixture]
 public abstract class BaseTest
 {
     protected IWebDriver Driver;

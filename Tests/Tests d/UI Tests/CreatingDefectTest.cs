@@ -5,17 +5,22 @@ using Models_and_Steps.Steps;
 using NUnit.Allure.Attributes;
 using NUnit.Framework;
 
-namespace Tests.Tests_d;
+namespace Tests.Tests_d.UI_Tests;
 
 [AllureFeature("Create a defect")]
 public class CreatingDefectTest : BaseTest
 {
     private CreateDefectSteps _createDefectSteps;
+    private ProjectCreationSteps _projectCreationSteps;
+    private ProjectModel _projectModel;
 
     [SetUp]
     public void TestSetUp()
     {
         _createDefectSteps = new CreateDefectSteps(Driver);
+        _projectModel = ProjectModelFactory.Model1;
+        _projectCreationSteps = new ProjectCreationSteps(Driver);
+        _projectCreationSteps.CreateProject(_projectModel);
     }
 
     [Test]
@@ -42,6 +47,6 @@ public class CreatingDefectTest : BaseTest
     [TearDown]
     public void TestCleanUp()
     {
-        _createDefectSteps.CleanUp();
+        _projectCreationSteps.CleanUp(Driver, _projectModel);
     }
 }

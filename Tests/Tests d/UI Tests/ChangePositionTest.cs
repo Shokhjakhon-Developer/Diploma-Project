@@ -4,7 +4,7 @@ using Models_and_Steps.Steps;
 using NUnit.Allure.Attributes;
 using NUnit.Framework;
 
-namespace Tests.Tests_d;
+namespace Tests.Tests_d.UI_Tests;
 
 [AllureFeature("Profile settings feature")]
 public class ChangePositionTest : BaseTest
@@ -24,12 +24,12 @@ public class ChangePositionTest : BaseTest
     [AllureSeverity]
     public void TestChangingPosition()
     {
-        UserProfileModel profile = UserProfileModelFactory.UserProfile1;
+        UserProfileModel profileModel = UserProfileModelFactory.UserProfile1;
 
-        _changePositionSteps.ChangePosition(profile.Position);
-        var actualPosition = _changePositionSteps.GetActualPosition();
-        var expected = profile.Position;
+        _changePositionSteps.ChangePositionAndName(profileModel);
+        var actualModel = _changePositionSteps.GetActualModel();
+        var expectedModel = profileModel;
 
-        Assert.That(actualPosition, Is.EqualTo(expected), "Position in profile settings is not changed.");
+        Assert.That(actualModel, Is.EqualTo(expectedModel), "Position or name in profile settings is not changed.");
     }
 }

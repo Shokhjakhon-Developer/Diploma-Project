@@ -11,8 +11,8 @@ public class BrowserOptions
         chromeOptions.AddArgument(Helper.GetAppConfig().Driver.ChromeOptions.Disable_extensions);
         chromeOptions.AddArgument(Helper.GetAppConfig().Driver.ChromeOptions.Disable_dev_shm_usage);
         chromeOptions.AddArgument(Helper.GetAppConfig().Driver.ChromeOptions.No_sandbox);
-        chromeOptions.AddArgument(Helper.GetAppConfig().Driver.ChromeOptions.Headless);
-        chromeOptions.AddArgument(Helper.GetAppConfig().Driver.ChromeOptions.Window_size);
+        // chromeOptions.AddArgument(Helper.GetAppConfig().Driver.ChromeOptions.Headless);
+        // chromeOptions.AddArgument(Helper.GetAppConfig().Driver.ChromeOptions.Window_size);
         return chromeOptions;
     }
 }

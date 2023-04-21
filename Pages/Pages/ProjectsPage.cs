@@ -12,6 +12,21 @@ public class ProjectsPage : BasePage
         _map = new ProjectsPageMap(driver);
     }
 
+    public void ClickOnDeleteOption(string projectName)
+    {
+        _map.DeleteOption(projectName).Click();
+    }
+
+    public void ConfirmDeletion()
+    {
+        _map.ConfirmDeletion.Click();
+    }
+
+    public void ClickOnDropDown(string projectName)
+    {
+        _map.ProjectSpecificDropDown(projectName).Click();
+    }
+
     public void ClickOnDemoProjects()
     {
         _map.DemoProjects.Click();
@@ -30,6 +45,40 @@ public class ProjectsPage : BasePage
     public void ClickOnDefects()
     {
         _map.Defects.Click();
+    }
+
+    public void CreateNewProject()
+    {
+        _map.CreateNewProjectBtn.Click();
+    }
+
+    public void EnterProjectName(string name)
+    {
+        _map.ProjectNameField.SendKeys(name);
+    }
+
+    public void EnterProjectCode(string code)
+    {
+        Helper.ClearAndSendKeys(_map.ProjectCodeField, code);
+    }
+
+    public void CreateProject()
+    {
+        _map.CreateProjectBtn.Click();
+    }
+
+    public string GetProjectNameText()
+    {
+        return _map.ProjectNameLabel.Text;
+    }
+
+    public void GoBackToProjects()
+    {
+        _map.GoBackToProject.Click();
+    }
+    public string GetProjectCodeText()
+    {
+        return _map.ProjectCodeLabel().Text;
     }
 
     protected override IWebElement UniqueElement => _map.UniqueElement;
@@ -55,4 +104,35 @@ internal class ProjectsPageMap : BaseMap
 
     public IWebElement Defects =>
         Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Defects\")]"));
+
+    public IWebElement CreateNewProjectBtn =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//button[@id=\"createButton\"]"));
+
+    public IWebElement ProjectNameField =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"project-name\"]"));
+
+    public IWebElement ProjectCodeField =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"project-code\"]"));
+
+    public IWebElement CreateProjectBtn =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//button[@type=\"submit\"]"));
+
+    public IWebElement ProjectNameLabel =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//img/following-sibling::div"));
+
+    public IWebElement ProjectCodeLabel() =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"suites\")]/parent::h1"));
+
+    public IWebElement ProjectSpecificDropDown(string projectName) => Helper.FindElementWithWait(GetWebDriver,
+        By.XPath($"//a[@href=\"/project/{projectName}\"]/following::a[@data-bs-toggle=\"dropdown\"]"));
+
+    public IWebElement DeleteOption(string projectName) =>
+        Helper.FindElementWithWait(GetWebDriver,
+            By.XPath($"//a[@href=\"/project/{projectName}\"]//following::button[contains(text(),\"Delete\")]"));
+
+    public IWebElement ConfirmDeletion =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Delete\")]"));
+
+    public IWebElement GoBackToProject =>
+        Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[@href=\"/projects\"]"));
 }

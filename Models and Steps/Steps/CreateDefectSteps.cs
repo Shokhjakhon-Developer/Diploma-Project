@@ -7,22 +7,18 @@ namespace Models_and_Steps.Steps;
 public class CreateDefectSteps : BaseSteps
 {
     private readonly DefectsPage _defectsPage;
+    private readonly ProjectsPage _projectsPage;
 
     public CreateDefectSteps(IWebDriver driver) : base(driver)
     {
         _defectsPage = new DefectsPage("DefectsPage", driver);
+        _projectsPage = new ProjectsPage("Projects page", driver);
     }
 
 
     public void ClickOnDefects()
     {
-        ProjectsPage.ClickOnDemoProjects();
-        ProjectsPage.ClickOnDefects();
-    }
-
-    public bool AreWeOnDefectsPage()
-    {
-        return _defectsPage.IsPageOpened();
+        _projectsPage.ClickOnDefects();
     }
 
     public void CreateDefect()
@@ -53,12 +49,5 @@ public class CreateDefectSteps : BaseSteps
         var actualTitle = _defectsPage.GetActualDescription().Text;
         return actualTitle;
     }
-
-    public void CleanUp()
-    {
-        ProjectsPage.ClickOnDefects();
-        _defectsPage.ClickOnDropDown();
-        _defectsPage.ClickOnDeleteOption();
-        _defectsPage.ConfirmDeletion();
-    }
+    
 }

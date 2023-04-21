@@ -1,5 +1,4 @@
-﻿using Models_and_Steps.Data;
-using Models_and_Steps.Models;
+﻿using Models_and_Steps.Models;
 using OpenQA.Selenium;
 using Pages.Component;
 using Pages.Pages;
@@ -13,24 +12,30 @@ public class ChangePositionSteps : BaseSteps
 
     public ChangePositionSteps(IWebDriver driver) : base(driver)
     {
-        _accountBar = new AccountBar("AccountBar",driver);
-        _profilePage = new ProfilePage("ProfilePage",driver);
+        _accountBar = new AccountBar("AccountBar", driver);
+        _profilePage = new ProfilePage("ProfilePage", driver);
     }
 
 
-    public void ChangePosition(string position)
+    public void ChangePositionAndName(UserProfileModel model)
     {
         _accountBar.ClickOnAccountBar();
         _accountBar.ClickOnProfile();
-        _profilePage.EnterPosition(position);
+        _profilePage.EnterPosition(model.Position);
+        _profilePage.EnterName(model.Name);
         _profilePage.ClickOnUpdateSettings();
     }
 
-    
 
-    public string GetActualPosition()
+    public UserProfileModel GetActualModel()
     {
         var actualPosition = _profilePage.GetPosition();
-        return actualPosition;
+        var actualName = _profilePage.GetName();
+        var actualModel = new UserProfileModel
+        {
+            Name = actualName,
+            Position = actualPosition
+        };
+        return actualModel;
     }
 }

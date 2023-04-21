@@ -14,15 +14,24 @@ public class ProfilePage : BasePage
 
     public void EnterPosition(string position)
     {
-        var positionField = _map.PositionField;
-        positionField.Clear();
-        positionField.SendKeys(position);
+        Helper.ClearAndSendKeys(_map.PositionField, position);
+    }
+
+    public void EnterName(string name)
+    {
+        Helper.ClearAndSendKeys(_map.NameField, name);
     }
 
     public string GetPosition()
     {
         var position = _map.PositionField.GetAttribute("value");
         return position;
+    }
+
+    public string GetName()
+    {
+        var name = _map.NameField.GetAttribute("value");
+        return name;
     }
 
     public void ClickOnUpdateSettings()
@@ -47,4 +56,6 @@ internal class ProfilePageMap : BaseMap
 
     public IWebElement UpdateSettingsBtn =>
         Helper.FindElementWithWait(GetWebDriver, By.XPath("//button[@data-qase-test=\"update-settings\"]"));
+
+    public IWebElement NameField => Helper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"inputName\"]"));
 }
