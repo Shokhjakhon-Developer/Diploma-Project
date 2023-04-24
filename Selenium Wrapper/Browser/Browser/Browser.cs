@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using Selenium_Wrapper.Browser.Browser_options;
-using Selenium_Wrapper.Utilities;
+using Utilities.Utilities;
 using WebDriverManager.DriverConfigs.Impl;
 using WebDriverManager.Helpers;
 

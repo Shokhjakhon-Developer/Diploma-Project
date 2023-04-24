@@ -21,7 +21,7 @@ public class ProjectCreationSteps : BaseSteps
         _projectsPage.CreateProject();
     }
 
-    public void CleanUp(IWebDriver driver, ProjectModel model)
+    public void CleanUp( ProjectModel model)
     {
         _projectsPage.GoBackToProjects();
         _projectsPage.ClickOnDropDown(model.ProjectCode.ToUpper());

@@ -1,5 +1,5 @@
 ﻿using Models_and_Steps.Models;
-using Selenium_Wrapper.Utilities;
+using Utilities.Utilities;
 
 namespace Models_and_Steps.Data;
 

@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-using Selenium_Wrapper.Utilities;
+using Utilities.Utilities;
 
 namespace Pages.Pages;
 

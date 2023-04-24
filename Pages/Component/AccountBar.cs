@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 using Pages.Pages;
-using Selenium_Wrapper.Utilities;
+using Utilities.Utilities;
 
 namespace Pages.Component;
 

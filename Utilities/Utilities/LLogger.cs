@@ -2,7 +2,7 @@
 using NLog.Config;
 using NLog.Targets;
 
-namespace Selenium_Wrapper.Utilities;
+namespace Utilities.Utilities;
 
 public sealed class LLogger
 {

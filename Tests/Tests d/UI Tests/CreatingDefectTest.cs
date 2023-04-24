@@ -47,6 +47,6 @@ public class CreatingDefectTest : BaseTest
     [TearDown]
     public void TestCleanUp()
     {
-        _projectCreationSteps.CleanUp(Driver, _projectModel);
+        _projectCreationSteps.CleanUp(_projectModel);
     }
 }

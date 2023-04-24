@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using Selenium_Wrapper.Utilities;
 
-namespace Selenium_Wrapper.Utilities;
+namespace Utilities.Utilities;
 
 public class Helper
-{ 
+{
     public static IWebElement FindElementWithWait(IWebDriver driver, By locator)
     {
         var webDriverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
