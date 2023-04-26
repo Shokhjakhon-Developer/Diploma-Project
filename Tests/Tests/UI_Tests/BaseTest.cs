@@ -7,7 +7,7 @@ using OpenQA.Selenium;
 using Selenium_Wrapper.Browser.Browser;
 
 
-namespace Tests.Tests_d.UI_Tests;
+namespace Tests.Tests.UI_Tests;
 
 [AllureNUnit]
 [AllureSuite("Acceptance Test")]

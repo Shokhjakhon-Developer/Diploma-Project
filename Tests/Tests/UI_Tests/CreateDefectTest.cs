@@ -5,10 +5,10 @@ using Models_and_Steps.Steps;
 using NUnit.Allure.Attributes;
 using NUnit.Framework;
 
-namespace Tests.Tests_d.UI_Tests;
+namespace Tests.Tests.UI_Tests;
 
 [AllureFeature("Create a defect")]
-public class CreatingDefectTest : BaseTest
+public class CreateDefectTest : BaseTest
 {
     private CreateDefectSteps _createDefectSteps;
     private ProjectCreationSteps _projectCreationSteps;
@@ -28,7 +28,7 @@ public class CreatingDefectTest : BaseTest
     [Category("Acceptance Test")]
     [AllureStory("User creates a new defect.")]
     [AllureSeverity(SeverityLevel.critical)]
-    public void TestCreatingDefect()
+    public void TestCreateDefect()
     {
         DefectModel model = DefectModelFactory.Model;
         _createDefectSteps.ClickOnDefects();

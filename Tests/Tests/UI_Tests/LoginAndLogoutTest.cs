@@ -3,7 +3,7 @@ using Models_and_Steps.Steps;
 using NUnit.Allure.Attributes;
 using NUnit.Framework;
 
-namespace Tests.Tests_d.UI_Tests;
+namespace Tests.Tests.UI_Tests;
 
 [AllureFeature("Login and Logout Feature")]
 public class LoginAndLogoutTest : BaseTest

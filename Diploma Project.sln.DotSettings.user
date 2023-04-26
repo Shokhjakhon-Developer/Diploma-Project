@@ -1,29 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cba23796_002Dfb9f_002D4233_002D9571_002D205f2d7d74e4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestOne" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.API_tests.Test.TestOne&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=feeeea54_002D3f17_002D4466_002Da537_002D283096930a85/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Tests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.LoginAndLogoutTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.ChangePositionTest.TestChangingPosition&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.ChangePositionTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.AuthorizationTest.TestAuthorization&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.CreateTestPlansTest.TestCreatingTestPlans&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.CreatingDefectTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.CreateAuthorizationTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.CreateTestPlansTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.UI_Tests.ProjectCreationTest.TestProjectCreation&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.UI_Tests.ChangePositionTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.UI_Tests.LoginAndLogoutTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.UI_Tests.CreatingDefectTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.API_tests.test.TestOne&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.API_tests.ProjectCreationTest.TestProjectCreation&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.API_tests.ProjectCreationTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.API_tests.PlanCreationTest.TestPlanCreation&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.API_tests.CaseCreationTest.TestCaseCreation&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::8B28A8F7-BE37-4988-88DF-4C192EE0456E::net7.0::Tests.Tests_d.API_tests.DefectCreationTest.TestDefectCreation&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d4aab7b1_002De58a_002D4515_002D9741_002Dc1c8a7303098/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Session" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;And&gt;&#xD;
+    &lt;Namespace&gt;Tests.Tests&lt;/Namespace&gt;&#xD;
+    &lt;Project Location="C:\Users\Asus\RiderProjects\Diploma Project\Tests" Presentation="&amp;lt;Tests&amp;gt;" /&gt;&#xD;
+  &lt;/And&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

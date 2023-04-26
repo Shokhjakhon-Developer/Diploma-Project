@@ -1,6 +1,6 @@
 ﻿using RestSharp;
 
-namespace API_Services.Qase_Api;
+namespace API_Services.QaseApi;
 
 public abstract class BaseService
 {

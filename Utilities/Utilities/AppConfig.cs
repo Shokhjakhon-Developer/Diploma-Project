@@ -1,5 +1,5 @@
-﻿
-namespace Selenium_Wrapper.Utilities;
+﻿namespace Utilities.Utilities;
+
 public class AppConfig
 {
     public Driver Driver { get; set; }
@@ -19,6 +19,5 @@ public class Driver
         public string Disable_dev_shm_usage { get; set; }
         public string Headless { get; set; }
         public string Window_size { get; set; }
-
     }
 }

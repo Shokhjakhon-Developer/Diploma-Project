@@ -4,7 +4,7 @@ using Models_and_Steps.Steps;
 using NUnit.Allure.Attributes;
 using NUnit.Framework;
 
-namespace Tests.Tests_d.UI_Tests;
+namespace Tests.Tests.UI_Tests;
 
 [AllureFeature("Profile settings feature")]
 public class ChangePositionTest : BaseTest
@@ -22,7 +22,7 @@ public class ChangePositionTest : BaseTest
     [Category("Acceptance Test")]
     [AllureStory("Checking if we can change the position in out account.")]
     [AllureSeverity]
-    public void TestChangingPosition()
+    public void TestChangePosition()
     {
         UserProfileModel profileModel = UserProfileModelFactory.UserProfile1;
 

@@ -3,12 +3,12 @@ using Utilities.Utilities;
 
 namespace API_models.Data;
 
-public class ApiDefectModelFactory
+public class ADefectModelFactory
 {
-    public static DefectModel Model = new()
+    public static readonly ADefectModel Model = new()
     {
         Title = Helper.GetUniqueRandomStringWithLength(8),
         ActualResult = Helper.GetUniqueRandomStringWithLength(8),
-        Severity = 1
+        Severity = 0
     };
 }

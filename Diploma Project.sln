@@ -14,8 +14,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API models", "API models\AP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API Services", "API Services\API Services.csproj", "{1F5D0358-97F9-4694-8FDE-1EEB2975700E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API test steps", "API test steps\API test steps.csproj", "{39D4F882-57C0-42EE-9AA8-050F42F3DA08}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,9 +48,5 @@ Global
 		{1F5D0358-97F9-4694-8FDE-1EEB2975700E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F5D0358-97F9-4694-8FDE-1EEB2975700E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F5D0358-97F9-4694-8FDE-1EEB2975700E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{39D4F882-57C0-42EE-9AA8-050F42F3DA08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39D4F882-57C0-42EE-9AA8-050F42F3DA08}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39D4F882-57C0-42EE-9AA8-050F42F3DA08}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39D4F882-57C0-42EE-9AA8-050F42F3DA08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

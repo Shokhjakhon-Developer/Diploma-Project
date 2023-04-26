@@ -3,9 +3,9 @@ using Models_and_Steps.Models;
 using Models_and_Steps.Steps;
 using NUnit.Framework;
 
-namespace Tests.Tests_d.UI_Tests;
+namespace Tests.Tests.UI_Tests;
 
-public class ProjectCreationTest : BaseTest
+public class CreateProjectTest : BaseTest
 {
     private ProjectCreationSteps _projectCreationSteps;
     private ProjectModel _projectModel;
@@ -18,7 +18,7 @@ public class ProjectCreationTest : BaseTest
     }
 
     [Test]
-    public void TestProjectCreation()
+    public void TestCreateProject()
     {
         _projectCreationSteps.CreateProject(_projectModel);
 

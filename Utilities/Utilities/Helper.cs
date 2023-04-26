@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using Selenium_Wrapper.Utilities;
 
 namespace Utilities.Utilities;
 
@@ -39,5 +39,11 @@ public class Helper
         var str = GenUniqueRandomString();
         var limitedStr = str[..n];
         return limitedStr;
+    }
+
+    public static dynamic GetJsonObject(string content)
+    {
+        dynamic jObject = JObject.Parse(content);
+        return jObject;
     }
 }

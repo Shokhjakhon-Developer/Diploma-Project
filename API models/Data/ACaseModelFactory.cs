@@ -3,9 +3,9 @@ using Utilities.Utilities;
 
 namespace API_models.Data;
 
-public class ApiCaseModelFactory
+public class ACaseModelFactory
 {
-    public static readonly CaseModel Model = new()
+    public static readonly ACaseModel Model = new()
     {
         Title = Helper.GetUniqueRandomStringWithLength(8)
     };
