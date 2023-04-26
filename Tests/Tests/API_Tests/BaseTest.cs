@@ -8,8 +8,7 @@ using NUnit.Framework;
 namespace Tests.Tests.API_Tests;
 
 [AllureNUnit]
-[AllureSuite("Acceptance Test")]
-[TestFixture]
+[AllureSuite("API Tests")]
 public class BaseTest
 {
     protected AProjectModel ProjectModel;

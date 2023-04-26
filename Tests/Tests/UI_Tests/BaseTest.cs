@@ -10,7 +10,7 @@ using Selenium_Wrapper.Browser.Browser;
 namespace Tests.Tests.UI_Tests;
 
 [AllureNUnit]
-[AllureSuite("Acceptance Test")]
+[AllureSuite("Acceptance Tests")]
 [TestFixture]
 public abstract class BaseTest
 {
