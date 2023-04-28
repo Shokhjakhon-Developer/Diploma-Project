@@ -77,35 +77,35 @@ internal class DefectsPageMap : BaseMap
     }
     
     public IWebElement ActualDescription =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//div[@class=\"toastui-editor-contents\"]/p"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//div[@class=\"toastui-editor-contents\"]/p"));
 
     public override IWebElement UniqueElement =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//h1[contains(text(),\"Defects\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//h1[contains(text(),\"Defects\")]"));
 
 
     public IWebElement CreateDefect =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"btn btn-primary\"]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"btn btn-primary\"]"));
 
-    public IWebElement TitleField => Helper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"title\"]"));
+    public IWebElement TitleField => UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"title\"]"));
 
     public IWebElement ActualResultField =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//div[@contenteditable=\"true\"]/p"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//div[@contenteditable=\"true\"]/p"));
 
     public IWebElement ConfirmCreatingDefect =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//button[contains(text(),\"Create\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//button[contains(text(),\"Create\")]"));
 
     public IWebElement DefectTitle =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"defect-title\"]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"defect-title\"]"));
 
     public IWebElement DropDown =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"btn btn-dropdown\"]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"btn btn-dropdown\"]"));
 
     public IWebElement DeleteOption =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[contains(text(),\"Delete\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//a[contains(text(),\"Delete\")]"));
 
     public IWebElement ConfirmDelete =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Delete\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Delete\")]"));
 
     public IWebElement NoDefects =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//div[contains(text(),\"Looks like\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//div[contains(text(),\"Looks like\")]"));
 }

@@ -1,18 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium Wrapper", "Selenium Wrapper\Selenium Wrapper.csproj", "{6A8C102A-3EBA-4916-BD3B-48304ED0F2DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium_Wrapper", "Selenium_Wrapper\Selenium_Wrapper.csproj", "{6A8C102A-3EBA-4916-BD3B-48304ED0F2DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pages", "Pages\Pages.csproj", "{CBFD228D-B60C-423F-AB6F-970EFC6BDF1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models and Steps", "Models and Steps\Models and Steps.csproj", "{B756D77E-9BF6-447E-A926-F6BC8126AA92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models_and_Steps", "Models_and_Steps\Models_and_Steps.csproj", "{B756D77E-9BF6-447E-A926-F6BC8126AA92}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{8B28A8F7-BE37-4988-88DF-4C192EE0456E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{FC169B44-2054-45BC-87EB-479013A439EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API models", "API models\API models.csproj", "{57E87791-438F-4620-8532-7E8F57C1C881}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_models", "API_models\API_models.csproj", "{57E87791-438F-4620-8532-7E8F57C1C881}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API Services", "API Services\API Services.csproj", "{1F5D0358-97F9-4694-8FDE-1EEB2975700E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_Services", "API_Services\API_Services.csproj", "{1F5D0358-97F9-4694-8FDE-1EEB2975700E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

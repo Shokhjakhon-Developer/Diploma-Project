@@ -41,10 +41,10 @@ internal class AccountBarMap : BaseMap
     }
 
     public override IWebElement UniqueElement =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//img"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//img"));
 
 
-    public IWebElement SignOut => Helper.FindElementWithWait(GetWebDriver,
+    public IWebElement SignOut => UiHelper.FindElementWithWait(GetWebDriver,
         By.XPath("//span[contains(text(),\"Sign out\")]"));
 
     public IWebElement Profile => GetWebDriver.FindElement(

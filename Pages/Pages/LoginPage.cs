@@ -38,13 +38,13 @@ internal class LoginPageMap : BaseMap
     }
 
     public override IWebElement UniqueElement =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"logo\"]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"logo\"]"));
 
 
-    public IWebElement EmailField => Helper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"inputEmail\"]"));
+    public IWebElement EmailField => UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"inputEmail\"]"));
 
     public IWebElement PasswordField =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"inputPassword\"]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"inputPassword\"]"));
 
-    public IWebElement Login => Helper.FindElementWithWait(GetWebDriver, By.XPath("//button[@id=\"btnLogin\"]"));
+    public IWebElement Login => UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//button[@id=\"btnLogin\"]"));
 }

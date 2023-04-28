@@ -1,4 +1,6 @@
-﻿using API_models.Data;
+﻿using System.Net;
+using API_models.Data;
+using API_models.Models;
 using API_Services.QaseApi.CaseService;
 using NUnit.Allure.Attributes;
 using NUnit.Framework;
@@ -7,17 +9,27 @@ namespace Tests.Tests.API_Tests;
 
 public class CreateCaseTest : BaseTest
 {
+    private ACaseModel _caseModel;
+    private CaseService _caseService;
+
+    [SetUp]
+    public void SetUp()
+    {
+        _caseModel = new ACaseModelFactory().Model;
+        _caseService = new CaseService();
+    }
+
     [Test]
     [AllureDescription("Changing position in profile settings.")]
     [Category("API Test")]
     [AllureStory("Checking if we can create test case using api.")]
     public void TestCreateCase()
     {
-        var caseService = new CaseService();
-        caseService.CreateCase(ACaseModelFactory.Model, ProjectModel);
-        var actualCaseViewModel = caseService.GetCaseByCode(ProjectModel);
-        var expectedCaseViewModel = ViewModelFactory.ExpectedCaseViewModel;
+        var (statusCodeCreate, createCaseResponseContent) = _caseService.CreateCase(_caseModel, ProjectModel);
+        Assert.That(statusCodeCreate, Is.EqualTo(HttpStatusCode.OK), $"{createCaseResponseContent}");
 
-        Assert.That(actualCaseViewModel, Is.EqualTo(expectedCaseViewModel), "Case may not have been created");
+        var (statusCodeGet, actualCaseModel, getCaseResponseContent) = _caseService.GetCaseByCode(ProjectModel);
+        Assert.That(statusCodeGet, Is.EqualTo(HttpStatusCode.OK), $"{getCaseResponseContent}");
+        Assert.That(actualCaseModel, Is.EqualTo(_caseModel), "Actual case model is not the same as expected one");
     }
 }

@@ -92,41 +92,41 @@ internal class TestPlanPageMap : BaseMap
     }
 
     public override IWebElement UniqueElement =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//h1[contains(text(),\"Test plans\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//h1[contains(text(),\"Test plans\")]"));
 
 
     public IWebElement CreatePlan =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//h1/following-sibling::div/a[@id=\"createButton\"]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//h1/following-sibling::div/a[@id=\"createButton\"]"));
 
-    public IWebElement TitleField => Helper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"title\"]"));
+    public IWebElement TitleField => UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"title\"]"));
 
     public IWebElement DescriptionField =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//p[contains(@data-placeholder,\"Full\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//p[contains(@data-placeholder,\"Full\")]"));
 
     public IWebElement AddCases =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//button[@id=\"edit-plan-add-cases-button\"]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//button[@id=\"edit-plan-add-cases-button\"]"));
 
-    public IWebElement AuthorizationTest => Helper.FindElementWithWait(GetWebDriver,
+    public IWebElement AuthorizationTest => UiHelper.FindElementWithWait(GetWebDriver,
         By.XPath("//div[@id=\"suite-1-checkbox\"]"));
 
     public IWebElement DoneBtn =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Done\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Done\")]"));
 
     public IWebElement CreatePlanButton =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//button[@id=\"save-plan\"]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//button[@id=\"save-plan\"]"));
 
     public IWebElement ActualDescription =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//div[@class=\"toastui-editor-contents\"]/p"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//div[@class=\"toastui-editor-contents\"]/p"));
 
-    public IWebElement PlanTitle => Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"defect-title\"]"));
-    public IWebElement DropDown => Helper.FindElementWithWait(GetWebDriver, By.XPath("//td/button"));
+    public IWebElement PlanTitle => UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"defect-title\"]"));
+    public IWebElement DropDown => UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//td/button"));
 
     public IWebElement Delete =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//li[contains(text(),\"Delete\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//li[contains(text(),\"Delete\")]"));
 
     public IWebElement DeletePlan =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Delete plan\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Delete plan\")]"));
 
     public IWebElement NoPlans =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//div[contains(text(),\"Looks like\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//div[contains(text(),\"Looks like\")]"));
 }

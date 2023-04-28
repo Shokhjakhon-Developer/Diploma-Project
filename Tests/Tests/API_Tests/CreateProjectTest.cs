@@ -1,5 +1,4 @@
-﻿using API_models.Data;
-using API_Services.QaseApi.ProjectService;
+﻿using System.Net;
 using NUnit.Allure.Attributes;
 using NUnit.Framework;
 
@@ -13,10 +12,10 @@ public class CreateProjectTest : BaseTest
     [AllureStory("Checking if we can create a project using api.")]
     public void TestCreateProject()
     {
-        var projectService = new ProjectService();
-        var actualProjectViewModel = projectService.GetProjectByCode(AProjectModelFactory.Model);
-        var expectedProjectViewModel = ViewModelFactory.ExpectedProjectViewModel;
+        var (statusCodeGetProject, actualModel, getProjectResponseContent) =
+            ProjectService.GetProjectByCode(ProjectModel);
 
-        Assert.That(actualProjectViewModel, Is.EqualTo(expectedProjectViewModel), "Project may not have been created");
+        Assert.That(statusCodeGetProject, Is.EqualTo(HttpStatusCode.OK), $"{getProjectResponseContent}");
+        Assert.That(actualModel, Is.EqualTo(ProjectModel), "Actual project model is not the same as expected one");
     }
 }

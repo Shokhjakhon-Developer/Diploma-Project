@@ -19,9 +19,9 @@
 
     <ItemGroup>
       <ProjectReference Include="..\API Services and steps\API Services and steps.csproj" />
-      <ProjectReference Include="..\API Services\API Services.csproj" />
-      <ProjectReference Include="..\Models and Steps\Models and Steps.csproj" />
-      <ProjectReference Include="..\Selenium Wrapper\Selenium Wrapper.csproj" />
+      <ProjectReference Include="..\API_Services\API_Services.csproj" />
+      <ProjectReference Include="..\Models_and_Steps\Models_and_Steps.csproj" />
+      <ProjectReference Include="..\Selenium_Wrapper\Selenium_Wrapper.csproj" />
     </ItemGroup>
 
 </Project>

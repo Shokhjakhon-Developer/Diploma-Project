@@ -27,8 +27,8 @@ internal class MainPageMap : BaseMap
     }
 
     public override IWebElement UniqueElement =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//h1[contains(@class,\"text-white\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//h1[contains(@class,\"text-white\")]"));
 
 
-    public IWebElement LoginBtn => Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[@id=\"signin\"]"));
+    public IWebElement LoginBtn => UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//a[@id=\"signin\"]"));
 }

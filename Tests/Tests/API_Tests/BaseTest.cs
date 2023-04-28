@@ -1,4 +1,5 @@
-﻿using API_models.Data;
+﻿using System.Net;
+using API_models.Data;
 using API_models.Models;
 using API_Services.QaseApi.ProjectService;
 using NUnit.Allure.Attributes;
@@ -12,19 +13,20 @@ namespace Tests.Tests.API_Tests;
 public class BaseTest
 {
     protected AProjectModel ProjectModel;
-    private ProjectService _projectService;
+    protected ProjectService ProjectService;
 
     [SetUp]
     public void BeforeTest()
     {
-        ProjectModel = AProjectModelFactory.Model;
-        _projectService = new ProjectService();
-        _projectService.CreateProject(ProjectModel);
+        ProjectModel = new AProjectModelFactory().Model;
+        ProjectService = new ProjectService();
+        var (statusCodeCreateProject, createProjectResponseContent) = ProjectService.CreateProject(ProjectModel);
+        Assert.That(statusCodeCreateProject, Is.EqualTo(HttpStatusCode.OK), $"{createProjectResponseContent}");
     }
 
     [TearDown]
     public void AfterTest()
     {
-        _projectService.DeleteProjectByCode(ProjectModel);
+        ProjectService.DeleteProjectByCode(ProjectModel);
     }
 }

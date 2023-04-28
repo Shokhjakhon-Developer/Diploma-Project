@@ -72,35 +72,35 @@ internal class TestRunsPageMap : BaseMap
     }
 
     public override IWebElement UniqueElement =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//div[@class=\"col-lg-12\"]/h1"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//div[@class=\"col-lg-12\"]/h1"));
 
-    public IWebElement StartNewTestRuns => Helper.FindElementWithWait(GetWebDriver,
+    public IWebElement StartNewTestRuns => UiHelper.FindElementWithWait(GetWebDriver,
         By.XPath("//div[@class=\"d-flex mt-3\"]/button[contains(@class,\"Uzx\")]"));
 
-    public IWebElement AuthorizationTest => Helper.FindElementWithWait(GetWebDriver,
+    public IWebElement AuthorizationTest => UiHelper.FindElementWithWait(GetWebDriver,
         By.XPath("//div[@id=\"suite-1-checkbox\"]"));
 
     public IWebElement AddTests =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//button[contains(text(),\"Add/modify\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//button[contains(text(),\"Add/modify\")]"));
 
     public IWebElement DoneBtn =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Done\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Done\")]"));
 
     public IWebElement StartRunBtn =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Start a run\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Start a run\")]"));
 
     public IWebElement OpenWizardBtn =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//button[@id=\"open-wizard\"]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//button[@id=\"open-wizard\"]"));
 
     public IWebElement DropDown =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"btn btn-dropdown\"]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"btn btn-dropdown\"]"));
 
     public IWebElement Delete =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Delete\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Delete\")]"));
 
-    public IWebElement ConfirmDelete => Helper.FindElementWithWait(GetWebDriver,
+    public IWebElement ConfirmDelete => UiHelper.FindElementWithWait(GetWebDriver,
         By.XPath("//span[@class=\"ZwgkIF\" and contains(text(),\"Delete\")]"));
 
     public IWebElement CleanUpConfirmation =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//div[contains(text(),\"Looks like\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//div[contains(text(),\"Looks like\")]"));
 }

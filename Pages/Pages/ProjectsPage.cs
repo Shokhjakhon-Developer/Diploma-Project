@@ -59,7 +59,7 @@ public class ProjectsPage : BasePage
 
     public void EnterProjectCode(string code)
     {
-        Helper.ClearAndSendKeys(_map.ProjectCodeField, code);
+        UiHelper.ClearAndSendKeys(_map.ProjectCodeField, code);
     }
 
     public void CreateProject()
@@ -91,48 +91,48 @@ internal class ProjectsPageMap : BaseMap
     }
 
     public override IWebElement UniqueElement =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//div[@class=\"col-lg-12\"]/h1"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//div[@class=\"col-lg-12\"]/h1"));
 
     public IWebElement DemoProjects =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[contains(text(),\"Demo Project\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//a[contains(text(),\"Demo Project\")]"));
 
     public IWebElement TestRuns =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Test Runs\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Test Runs\")]"));
 
     public IWebElement TestPlans =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Test Plans\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Test Plans\")]"));
 
     public IWebElement Defects =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Defects\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Defects\")]"));
 
     public IWebElement CreateNewProjectBtn =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//button[@id=\"createButton\"]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//button[@id=\"createButton\"]"));
 
     public IWebElement ProjectNameField =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"project-name\"]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"project-name\"]"));
 
     public IWebElement ProjectCodeField =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"project-code\"]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"project-code\"]"));
 
     public IWebElement CreateProjectBtn =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//button[@type=\"submit\"]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//button[@type=\"submit\"]"));
 
     public IWebElement ProjectNameLabel =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//img/following-sibling::div"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//img/following-sibling::div"));
 
     public IWebElement ProjectCodeLabel() =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"suites\")]/parent::h1"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"suites\")]/parent::h1"));
 
-    public IWebElement ProjectSpecificDropDown(string projectName) => Helper.FindElementWithWait(GetWebDriver,
+    public IWebElement ProjectSpecificDropDown(string projectName) => UiHelper.FindElementWithWait(GetWebDriver,
         By.XPath($"//a[@href=\"/project/{projectName}\"]/following::a[@data-bs-toggle=\"dropdown\"]"));
 
     public IWebElement DeleteOption(string projectName) =>
-        Helper.FindElementWithWait(GetWebDriver,
+        UiHelper.FindElementWithWait(GetWebDriver,
             By.XPath($"//a[@href=\"/project/{projectName}\"]//following::button[contains(text(),\"Delete\")]"));
 
     public IWebElement ConfirmDeletion =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Delete\")]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Delete\")]"));
 
     public IWebElement GoBackToProject =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//a[@href=\"/projects\"]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//a[@href=\"/projects\"]"));
 }

@@ -14,12 +14,12 @@ public class ProfilePage : BasePage
 
     public void EnterPosition(string position)
     {
-        Helper.ClearAndSendKeys(_map.PositionField, position);
+        UiHelper.ClearAndSendKeys(_map.PositionField, position);
     }
 
     public void EnterName(string name)
     {
-        Helper.ClearAndSendKeys(_map.NameField, name);
+        UiHelper.ClearAndSendKeys(_map.NameField, name);
     }
 
     public string GetPosition()
@@ -48,14 +48,14 @@ internal class ProfilePageMap : BaseMap
     {
     }
 
-    public override IWebElement UniqueElement => Helper.FindElementWithWait(GetWebDriver,
+    public override IWebElement UniqueElement => UiHelper.FindElementWithWait(GetWebDriver,
         By.XPath("//div[@class=\"col-lg-12\"]/h1[contains(text(),\"Profile\")]"));
 
     public IWebElement PositionField =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"inputRole\"]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"inputRole\"]"));
 
     public IWebElement UpdateSettingsBtn =>
-        Helper.FindElementWithWait(GetWebDriver, By.XPath("//button[@data-qase-test=\"update-settings\"]"));
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//button[@data-qase-test=\"update-settings\"]"));
 
-    public IWebElement NameField => Helper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"inputName\"]"));
+    public IWebElement NameField => UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"inputName\"]"));
 }
