@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-using Selenium_Wrapper.Element_Wrapper.Elements;
+using Utilities.Utilities;
 
 namespace Pages.Pages;
 
@@ -7,10 +7,14 @@ public class TestPlansPage : BasePage
 {
     private readonly TestPlanPageMap _map;
 
-    public TestPlansPage(string name) : base(name)
+    public TestPlansPage(string name, IWebDriver driver) : base(name, driver)
     {
-        _map = new TestPlanPageMap();
-        UniqueElement = _map.UniqueElement;
+        _map = new TestPlanPageMap(driver);
+    }
+
+    public void ClickOnTestPlan()
+    {
+        _map.PlanTitle.Click();
     }
 
     public void CreateTestPlan()
@@ -20,12 +24,12 @@ public class TestPlansPage : BasePage
 
     public void EnterTitle(string title)
     {
-        _map.TitleField.EnterText(title);
+        _map.TitleField.SendKeys(title);
     }
 
     public void EnterDescription(string description)
     {
-        _map.DescriptionField.EnterText(description);
+        _map.DescriptionField.SendKeys(description);
     }
 
     public void ClickOnAddCasesButton()
@@ -50,7 +54,7 @@ public class TestPlansPage : BasePage
 
     public string GetPlanTitle()
     {
-        return _map.PlanTitle.GetText();
+        return _map.PlanTitle.Text;
     }
 
     public void ClickOnDropDown()
@@ -70,41 +74,59 @@ public class TestPlansPage : BasePage
 
     public bool GetNoPlansLabelText()
     {
-        return _map.NoPlans.IsDisplayed();
+        return _map.NoPlans.Displayed;
     }
+
+    public IWebElement GetActualDescriptionLabel()
+    {
+        return _map.ActualDescription;
+    }
+
+    protected override IWebElement UniqueElement => _map.UniqueElement;
 }
 
 internal class TestPlanPageMap : BaseMap
 {
-    public TestPlanPageMap()
+    public TestPlanPageMap(IWebDriver driver) : base(driver)
     {
-        UniqueElement = new Label("HeaderLabel", By.XPath("//h1[contains(text(),\"Test plans\")]"));
     }
 
-    public readonly Button CreatePlan =
-        new("CreatePlanButton", By.XPath("//h1/following-sibling::div/a[@id=\"createButton\"]"));
+    public override IWebElement UniqueElement =>
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//h1[contains(text(),\"Test plans\")]"));
 
-    public readonly TextInputField TitleField = new("TitleField", By.XPath("//input[@id=\"title\"]"));
 
-    public readonly TextInputField DescriptionField =
-        new("DescriptionField", By.XPath("//p[contains(@data-placeholder,\"Full\")]"));
+    public IWebElement CreatePlan =>
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//h1/following-sibling::div/a[@id=\"createButton\"]"));
 
-    public readonly Button AddCases = new("AddCasesButton", By.XPath("//button[@id=\"edit-plan-add-cases-button\"]"));
+    public IWebElement TitleField => UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//input[@id=\"title\"]"));
 
-    public readonly Label AuthorizationTest = new("AuthorizationLabel",
+    public IWebElement DescriptionField =>
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//p[contains(@data-placeholder,\"Full\")]"));
+
+    public IWebElement AddCases =>
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//button[@id=\"edit-plan-add-cases-button\"]"));
+
+    public IWebElement AuthorizationTest => UiHelper.FindElementWithWait(GetWebDriver,
         By.XPath("//div[@id=\"suite-1-checkbox\"]"));
 
-    public readonly Button DoneBtn = new("DoneButton", By.XPath("//span[contains(text(),\"Done\")]"));
+    public IWebElement DoneBtn =>
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Done\")]"));
 
-    public readonly Button CreatePlanButton = new("CreatePlan", By.XPath("//button[@id=\"save-plan\"]"));
+    public IWebElement CreatePlanButton =>
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//button[@id=\"save-plan\"]"));
 
-    public readonly Label PlanTitle = new("PlanTitleLabel", By.XPath("//a[@class=\"defect-title\"]"));
+    public IWebElement ActualDescription =>
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//div[@class=\"toastui-editor-contents\"]/p"));
 
-    public readonly Label DropDown = new("DropDownLabel", By.XPath("//td/button"));
+    public IWebElement PlanTitle => UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//a[@class=\"defect-title\"]"));
+    public IWebElement DropDown => UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//td/button"));
 
-    public readonly Button Delete = new("DeleteButton", By.XPath("//li[contains(text(),\"Delete\")]"));
+    public IWebElement Delete =>
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//li[contains(text(),\"Delete\")]"));
 
-    public readonly Button DeletePlan = new("DeletePlanButton", By.XPath("//span[contains(text(),\"Delete plan\")]"));
+    public IWebElement DeletePlan =>
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//span[contains(text(),\"Delete plan\")]"));
 
-    public readonly Label NoPlans = new("NoPlansLabel", By.XPath("//div[contains(text(),\"Looks like\")]"));
+    public IWebElement NoPlans =>
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//div[contains(text(),\"Looks like\")]"));
 }

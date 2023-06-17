@@ -1,5 +1,5 @@
-﻿using Selenium_Wrapper.Element_Wrapper.Elements;
-using Selenium_Wrapper.Utilities;
+﻿using OpenQA.Selenium;
+using Utilities.Utilities;
 
 namespace Pages.Pages;
 
@@ -7,16 +7,17 @@ public abstract class BasePage
 {
     protected string Name { get; }
 
-    protected BaseElement UniqueElement { get; set; }
 
-    protected BasePage(string name)
+    protected abstract IWebElement UniqueElement { get; }
+
+    protected BasePage(string name, IWebDriver driver)
     {
         Name = name;
     }
 
     public bool IsPageOpened()
     {
-        var isPageOpened = UniqueElement.IsDisplayed();
+        var isPageOpened = UniqueElement.Displayed;
         LLogger.Instance.Info($"{Name} is opened: {isPageOpened}.");
         return isPageOpened;
     }
@@ -24,5 +25,14 @@ public abstract class BasePage
 
 public abstract class BaseMap
 {
-    public BaseElement UniqueElement { get; set; }
+    public abstract IWebElement UniqueElement { get; }
+
+    private readonly IWebDriver _driver;
+
+    protected BaseMap(IWebDriver driver)
+    {
+        _driver = driver;
+    }
+
+    protected IWebDriver GetWebDriver => _driver;
 }

@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 using Pages.Pages;
-using Selenium_Wrapper.Element_Wrapper.Elements;
+using Utilities.Utilities;
 
 namespace Pages.Component;
 
@@ -8,14 +8,14 @@ public class AccountBar : BasePage
 {
     private readonly AccountBarMap _map;
 
-    public AccountBar(string name) : base(name)
+    public AccountBar(string name, IWebDriver driver) : base(name, driver)
     {
-        _map = new AccountBarMap();
+        _map = new AccountBarMap(driver);
     }
 
     public void ClickOnAccountBar()
     {
-        var element = _map.UniqueElement;
+        var element = UniqueElement;
         element.Click();
     }
 
@@ -30,18 +30,23 @@ public class AccountBar : BasePage
         var element = _map.Profile;
         element.Click();
     }
+
+    protected override IWebElement UniqueElement => _map.UniqueElement;
 }
 
 internal class AccountBarMap : BaseMap
 {
-    public AccountBarMap()
+    public AccountBarMap(IWebDriver driver) : base(driver)
     {
-        UniqueElement = new Label("AccountLabel", By.XPath("//span/img[@alt=\"Shokhjakhon\"]"));
     }
 
-    public readonly Label SignOut = new("SignOutLabel",
+    public override IWebElement UniqueElement =>
+        UiHelper.FindElementWithWait(GetWebDriver, By.XPath("//img"));
+
+
+    public IWebElement SignOut => UiHelper.FindElementWithWait(GetWebDriver,
         By.XPath("//span[contains(text(),\"Sign out\")]"));
 
-    public readonly Label Profile = new("ProfileLabel",
+    public IWebElement Profile => GetWebDriver.FindElement(
         By.XPath("//span[contains(text(),\"Profile\")]"));
 }
